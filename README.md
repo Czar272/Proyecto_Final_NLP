@@ -9,6 +9,18 @@ consultas sobre políticas internas de Recursos Humanos y el Código de Trabajo 
 (registrar solicitudes de vacaciones). Incluye guardrails contra inyección de instrucciones, control de acceso por rol,
 validación de salidas y auditoría con PII enmascarada.
 
+## Entregables
+
+| Entregable | Ubicación |
+|---|---|
+| Documento técnico | [`docs/Informe Tecnico - Proyecto Final CC3103 - Pablo Lopez.pdf`](docs/) |
+| Anteproyecto | [`docs/Anteproyecto - Proyecto Final CC3103 - Pablo Lopez.pdf`](docs/) |
+| Presentación de apoyo | [`docs/Presentacion - Proyecto Final CC3103 - Pablo Lopez.pdf`](docs/) |
+| Código fuente | `src/`, `scripts/`, `app/`, `tests/` |
+| Dataset de evaluación | `data/eval/testset.jsonl`, `data/eval/security_cases.jsonl` |
+| Resultados comparativos | `results/benchmark_latest.{md,json}`, `results/security_latest.{md,json}`, `results/iteracion1/` |
+| Video de demostración | `docs/` |
+
 ## Arquitectura
 
 ```
