@@ -1,0 +1,4053 @@
+{
+  "timestamp": "20261120_193907",
+  "llm_model": "openai/gpt-oss-120b",
+  "embedding_model": "intfloat/multilingual-e5-small",
+  "reranker_model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+  "n_cases": 27,
+  "retrieval_ablation": {
+    "bm25_sin_filtros (línea base)": {
+      "recall@5": 0.8684,
+      "recall@1": 0.5,
+      "recall@3": 0.7895,
+      "mrr": 0.7237,
+      "precision@5": 0.3474,
+      "noise": 0.6526,
+      "redundancy": 0.2105,
+      "latency": {
+        "mean_s": 0.002,
+        "p50_s": 0.002,
+        "p95_s": 0.003,
+        "max_s": 0.004
+      },
+      "per_case": [
+        {
+          "id": "D01",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "mrr": 0.5,
+          "precision@5": 0.8,
+          "noise": 0.19999999999999996,
+          "redundancy": 0.4
+        },
+        {
+          "id": "D02",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6,
+          "noise": 0.4,
+          "redundancy": 0.6
+        },
+        {
+          "id": "D03",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.4
+        },
+        {
+          "id": "D04",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "D05",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "P01",
+          "recall@5": 0.0,
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "mrr": 0.0,
+          "precision@5": 0.0,
+          "noise": 1.0,
+          "redundancy": 0.0
+        },
+        {
+          "id": "P02",
+          "recall@5": 0.0,
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "mrr": 0.0,
+          "precision@5": 0.0,
+          "noise": 1.0,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "P03",
+          "recall@5": 0.5,
+          "recall@1": 0.5,
+          "recall@3": 0.5,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "L01",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "L02",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "L03",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "M01",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 0.5,
+          "mrr": 0.5,
+          "precision@5": 0.6,
+          "noise": 0.4,
+          "redundancy": 0.4
+        },
+        {
+          "id": "M02",
+          "recall@5": 1.0,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6,
+          "noise": 0.4,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "M03",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "V01",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "mrr": 0.5,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.4
+        },
+        {
+          "id": "V02",
+          "recall@5": 1.0,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.0
+        },
+        {
+          "id": "T02",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "mrr": 0.25,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "T03",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "mrr": 0.5,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "T07",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "mrr": 0.5,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.4
+        }
+      ]
+    },
+    "bm25 + filtros": {
+      "recall@5": 0.8684,
+      "recall@1": 0.6579,
+      "recall@3": 0.8684,
+      "mrr": 0.8333,
+      "precision@5": 0.3579,
+      "noise": 0.6421,
+      "redundancy": 0.1895,
+      "latency": {
+        "mean_s": 0.003,
+        "p50_s": 0.003,
+        "p95_s": 0.004,
+        "max_s": 0.004
+      },
+      "per_case": [
+        {
+          "id": "D01",
+          "recall@5": 1.0,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0,
+          "noise": 0.0,
+          "redundancy": 0.6
+        },
+        {
+          "id": "D02",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6,
+          "noise": 0.4,
+          "redundancy": 0.6
+        },
+        {
+          "id": "D03",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.4
+        },
+        {
+          "id": "D04",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "D05",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "P01",
+          "recall@5": 0.0,
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "mrr": 0.0,
+          "precision@5": 0.0,
+          "noise": 1.0,
+          "redundancy": 0.0
+        },
+        {
+          "id": "P02",
+          "recall@5": 0.0,
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "mrr": 0.0,
+          "precision@5": 0.0,
+          "noise": 1.0,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "P03",
+          "recall@5": 0.5,
+          "recall@1": 0.5,
+          "recall@3": 0.5,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "L01",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "L02",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "L03",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "M01",
+          "recall@5": 1.0,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6,
+          "noise": 0.4,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "M02",
+          "recall@5": 1.0,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6,
+          "noise": 0.4,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "M03",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "V01",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "V02",
+          "recall@5": 1.0,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.0
+        },
+        {
+          "id": "T02",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "mrr": 0.3333333333333333,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "T03",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "mrr": 0.5,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "T07",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        }
+      ]
+    },
+    "denso_e5 + filtros": {
+      "recall@5": 0.8158,
+      "recall@1": 0.5263,
+      "recall@3": 0.8158,
+      "mrr": 0.7281,
+      "precision@5": 0.3684,
+      "noise": 0.6316,
+      "redundancy": 0.2421,
+      "latency": {
+        "mean_s": 0.089,
+        "p50_s": 0.09,
+        "p95_s": 0.133,
+        "max_s": 0.143
+      },
+      "per_case": [
+        {
+          "id": "D01",
+          "recall@5": 1.0,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0,
+          "noise": 0.0,
+          "redundancy": 0.6
+        },
+        {
+          "id": "D02",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6,
+          "noise": 0.4,
+          "redundancy": 0.6
+        },
+        {
+          "id": "D03",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.6
+        },
+        {
+          "id": "D04",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "D05",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "P01",
+          "recall@5": 0.0,
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "mrr": 0.0,
+          "precision@5": 0.0,
+          "noise": 1.0,
+          "redundancy": 0.4
+        },
+        {
+          "id": "P02",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "P03",
+          "recall@5": 0.5,
+          "recall@1": 0.5,
+          "recall@3": 0.5,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "L01",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "mrr": 0.3333333333333333,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "L02",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "mrr": 0.5,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "L03",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "M01",
+          "recall@5": 1.0,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8,
+          "noise": 0.19999999999999996,
+          "redundancy": 0.4
+        },
+        {
+          "id": "M02",
+          "recall@5": 1.0,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6,
+          "noise": 0.4,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "M03",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "mrr": 0.5,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "V01",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6,
+          "noise": 0.4,
+          "redundancy": 0.4
+        },
+        {
+          "id": "V02",
+          "recall@5": 0.0,
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "mrr": 0.0,
+          "precision@5": 0.0,
+          "noise": 1.0,
+          "redundancy": 0.0
+        },
+        {
+          "id": "T02",
+          "recall@5": 0.0,
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "mrr": 0.0,
+          "precision@5": 0.0,
+          "noise": 1.0,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "T03",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "mrr": 0.5,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.4
+        },
+        {
+          "id": "T07",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        }
+      ]
+    },
+    "híbrido_rrf + filtros": {
+      "recall@5": 0.8158,
+      "recall@1": 0.5526,
+      "recall@3": 0.7632,
+      "mrr": 0.7237,
+      "precision@5": 0.3895,
+      "noise": 0.6105,
+      "redundancy": 0.2632,
+      "latency": {
+        "mean_s": 0.125,
+        "p50_s": 0.105,
+        "p95_s": 0.274,
+        "max_s": 0.386
+      },
+      "per_case": [
+        {
+          "id": "D01",
+          "recall@5": 1.0,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0,
+          "noise": 0.0,
+          "redundancy": 0.6
+        },
+        {
+          "id": "D02",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6,
+          "noise": 0.4,
+          "redundancy": 0.6
+        },
+        {
+          "id": "D03",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.6
+        },
+        {
+          "id": "D04",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "D05",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "P01",
+          "recall@5": 0.0,
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "mrr": 0.0,
+          "precision@5": 0.0,
+          "noise": 1.0,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "P02",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "mrr": 0.25,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "P03",
+          "recall@5": 0.5,
+          "recall@1": 0.0,
+          "recall@3": 0.5,
+          "mrr": 0.5,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "L01",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "mrr": 0.5,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "L02",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "L03",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "M01",
+          "recall@5": 1.0,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8,
+          "noise": 0.19999999999999996,
+          "redundancy": 0.4
+        },
+        {
+          "id": "M02",
+          "recall@5": 1.0,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8,
+          "noise": 0.19999999999999996,
+          "redundancy": 0.4
+        },
+        {
+          "id": "M03",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "V01",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6,
+          "noise": 0.4,
+          "redundancy": 0.4
+        },
+        {
+          "id": "V02",
+          "recall@5": 0.0,
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "mrr": 0.0,
+          "precision@5": 0.0,
+          "noise": 1.0,
+          "redundancy": 0.0
+        },
+        {
+          "id": "T02",
+          "recall@5": 0.0,
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "mrr": 0.0,
+          "precision@5": 0.0,
+          "noise": 1.0,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "T03",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "mrr": 0.5,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "T07",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.4
+        }
+      ]
+    },
+    "híbrido_rrf + filtros + rerank": {
+      "recall@5": 0.9211,
+      "recall@1": 0.7368,
+      "recall@3": 0.8947,
+      "mrr": 0.886,
+      "precision@5": 0.3895,
+      "noise": 0.6105,
+      "redundancy": 0.2632,
+      "latency": {
+        "mean_s": 2.197,
+        "p50_s": 1.033,
+        "p95_s": 4.576,
+        "max_s": 4.632
+      },
+      "per_case": [
+        {
+          "id": "D01",
+          "recall@5": 1.0,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8,
+          "noise": 0.19999999999999996,
+          "redundancy": 0.4
+        },
+        {
+          "id": "D02",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "D03",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6,
+          "noise": 0.4,
+          "redundancy": 0.4
+        },
+        {
+          "id": "D04",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "D05",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "P01",
+          "recall@5": 0.0,
+          "recall@1": 0.0,
+          "recall@3": 0.0,
+          "mrr": 0.0,
+          "precision@5": 0.0,
+          "noise": 1.0,
+          "redundancy": 0.4
+        },
+        {
+          "id": "P02",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "P03",
+          "recall@5": 0.5,
+          "recall@1": 0.5,
+          "recall@3": 0.5,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "L01",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6,
+          "noise": 0.4,
+          "redundancy": 0.4
+        },
+        {
+          "id": "L02",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "L03",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "M01",
+          "recall@5": 1.0,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0,
+          "noise": 0.0,
+          "redundancy": 0.6
+        },
+        {
+          "id": "M02",
+          "recall@5": 1.0,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.0
+        },
+        {
+          "id": "M03",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.4
+        },
+        {
+          "id": "V01",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.6
+        },
+        {
+          "id": "V02",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 0.5,
+          "mrr": 0.3333333333333333,
+          "precision@5": 0.6,
+          "noise": 0.4,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "T02",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "T03",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "mrr": 0.5,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "T07",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.6
+        }
+      ]
+    },
+    "híbrido_rrf + filtros + rerank + expansión (mejorado)": {
+      "recall@5": 0.9737,
+      "recall@1": 0.7895,
+      "recall@3": 0.9474,
+      "mrr": 0.9386,
+      "precision@5": 0.4105,
+      "noise": 0.5895,
+      "redundancy": 0.2526,
+      "latency": {
+        "mean_s": 0.943,
+        "p50_s": 0.939,
+        "p95_s": 1.034,
+        "max_s": 1.103
+      },
+      "per_case": [
+        {
+          "id": "D01",
+          "recall@5": 1.0,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.8,
+          "noise": 0.19999999999999996,
+          "redundancy": 0.4
+        },
+        {
+          "id": "D02",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "D03",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6,
+          "noise": 0.4,
+          "redundancy": 0.4
+        },
+        {
+          "id": "D04",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "D05",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "P01",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "P02",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "P03",
+          "recall@5": 0.5,
+          "recall@1": 0.5,
+          "recall@3": 0.5,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "L01",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.6,
+          "noise": 0.4,
+          "redundancy": 0.4
+        },
+        {
+          "id": "L02",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.0
+        },
+        {
+          "id": "L03",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "M01",
+          "recall@5": 1.0,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 1.0,
+          "noise": 0.0,
+          "redundancy": 0.6
+        },
+        {
+          "id": "M02",
+          "recall@5": 1.0,
+          "recall@1": 0.5,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.0
+        },
+        {
+          "id": "M03",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.4
+        },
+        {
+          "id": "V01",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.6
+        },
+        {
+          "id": "V02",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 0.5,
+          "mrr": 0.3333333333333333,
+          "precision@5": 0.6,
+          "noise": 0.4,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "T02",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "T03",
+          "recall@5": 1.0,
+          "recall@1": 0.0,
+          "recall@3": 1.0,
+          "mrr": 0.5,
+          "precision@5": 0.2,
+          "noise": 0.8,
+          "redundancy": 0.19999999999999996
+        },
+        {
+          "id": "T07",
+          "recall@5": 1.0,
+          "recall@1": 1.0,
+          "recall@3": 1.0,
+          "mrr": 1.0,
+          "precision@5": 0.4,
+          "noise": 0.6,
+          "redundancy": 0.6
+        }
+      ]
+    }
+  },
+  "systems": {
+    "baseline": {
+      "summary": {
+        "n_cases": 27,
+        "behavior_accuracy": 0.6296,
+        "recall@5": 0.8684,
+        "mrr": 0.7237,
+        "noise": 0.6526,
+        "keyword_coverage": 0.7174,
+        "citation_precision": 0.8824,
+        "abstention_accuracy_unanswerable": 0.0,
+        "false_abstention_rate": 0.0588,
+        "faithfulness_judge": 0.9348,
+        "relevance_judge": 0.9609,
+        "latency": {
+          "mean_s": 2.711,
+          "p50_s": 0.766,
+          "p95_s": 6.876,
+          "max_s": 10.873
+        },
+        "llm_calls": 27,
+        "prompt_tokens": 27659,
+        "completion_tokens": 2945,
+        "refusal_rate_unanswerable": 1.0,
+        "confidential_citations_to_non_rrhh": 1,
+        "llm_errors_retries": 14,
+        "fallback_responses": 0,
+        "est_cost_usd": 0.00592,
+        "cost_per_query_usd": 0.000219,
+        "behavior_by_category": {
+          "directa": 1.0,
+          "parafrasis": 0.3333,
+          "lexica": 1.0,
+          "compuesta": 1.0,
+          "ambigua": 0.0,
+          "sin_respuesta": 1.0,
+          "version": 1.0,
+          "herramienta_nominal": 0.0,
+          "herramienta_seleccion": 1.0,
+          "herramienta_rango": 0.0,
+          "herramienta_confirmacion": 0.0,
+          "herramienta_indisponible": 0.0,
+          "herramienta_compuesta": 0.0
+        }
+      },
+      "rows": [
+        {
+          "id": "D01",
+          "category": "directa",
+          "question": "¿Cuántos días hábiles de vacaciones tiene derecho un trabajador después de un año de trabajo continuo?",
+          "response": {
+            "answer": "Un trabajador tiene derecho a quince días hábiles de vacaciones después de cada año de trabajo continuo.",
+            "sources": [
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2025.md",
+                "page": 1,
+                "chunk_id": "POL-RH-002-v2025-01-p1-c2",
+                "version": "2025-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-002-v2025-01-p1-c2",
+            "POL-RH-002-v2026-01-p1-c2",
+            "CT-GT-1441-v2007-p38-c4",
+            "CT-GT-1441-v2007-p38-c5",
+            "CT-GT-1441-v2007-p38-c7"
+          ],
+          "latency_s": 0.755,
+          "llm_calls": 1,
+          "prompt_tokens": 844,
+          "completion_tokens": 75,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 0.0,
+            "recall@3": 1.0,
+            "mrr": 0.5,
+            "precision@5": 0.8,
+            "noise": 0.19999999999999996,
+            "redundancy": 0.4
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 0.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "D02",
+          "category": "directa",
+          "question": "¿Cuántos días de teletrabajo por semana permite la política de la empresa?",
+          "response": {
+            "answer": "La política permite un máximo de dos días de teletrabajo por semana.",
+            "sources": [
+              {
+                "source": "POL-RH-003_teletrabajo_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-003-v2026-01-p1-c3",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-003-v2026-01-p1-c3",
+            "POL-RH-003-v2026-01-p1-c1",
+            "POL-RH-003-v2026-01-p2-c3",
+            "POL-RH-003-v2026-01-p2-c1",
+            "POL-RH-003-v2026-01-p1-c2"
+          ],
+          "latency_s": 0.52,
+          "llm_calls": 1,
+          "prompt_tokens": 714,
+          "completion_tokens": 57,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.6,
+            "noise": 0.4,
+            "redundancy": 0.6
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "D03",
+          "category": "directa",
+          "question": "¿Cuál es el monto del auxilio de conectividad para quienes hacen teletrabajo?",
+          "response": {
+            "answer": "Q150.00 mensuales",
+            "sources": [
+              {
+                "source": "POL-RH-003_teletrabajo_v2026.md",
+                "page": 2,
+                "chunk_id": "POL-RH-003-v2026-01-p2-c1",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-003-v2026-01-p2-c1",
+            "POL-RH-003-v2026-01-p1-c3",
+            "POL-RH-003-v2026-01-p2-c3",
+            "CT-GT-1441-v2007-p72-c4",
+            "POL-RH-003-v2026-01-p1-c1"
+          ],
+          "latency_s": 0.403,
+          "llm_calls": 1,
+          "prompt_tokens": 876,
+          "completion_tokens": 49,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.4,
+            "noise": 0.6,
+            "redundancy": 0.4
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "D04",
+          "category": "directa",
+          "question": "¿Cuál es el valor máximo de un regalo que puedo aceptar de un proveedor?",
+          "response": {
+            "answer": "El valor máximo de un regalo que puedes aceptar de un proveedor es Q200.00.",
+            "sources": [
+              {
+                "source": "POL-RH-005_etica_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-005-v2026-01-p1-c3",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-005-v2026-01-p1-c3",
+            "POL-RH-005-v2026-01-p2-c2",
+            "POL-RH-005-v2026-01-p1-c2",
+            "CT-GT-1441-v2007-p80-c10",
+            "CT-GT-1441-v2007-p42-c5"
+          ],
+          "latency_s": 0.52,
+          "llm_calls": 1,
+          "prompt_tokens": 749,
+          "completion_tokens": 60,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.4,
+            "noise": 0.6,
+            "redundancy": 0.19999999999999996
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "D05",
+          "category": "directa",
+          "question": "¿A partir de qué hora se considera una llegada tardía?",
+          "response": {
+            "answer": "Se considera llegada tardía el ingreso posterior a las 8:10 horas.",
+            "sources": [
+              {
+                "source": "POL-RH-001_reglamento_interior_v2026.md",
+                "page": 2,
+                "chunk_id": "POL-RH-001-v2026-01-p2-c1",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-001-v2026-01-p2-c1",
+            "CT-GT-1441-v2007-p42-c4",
+            "CT-GT-1441-v2007-p71-c1",
+            "CT-GT-1441-v2007-p109-c2",
+            "CT-GT-1441-v2007-p159-c1"
+          ],
+          "latency_s": 0.617,
+          "llm_calls": 1,
+          "prompt_tokens": 1257,
+          "completion_tokens": 58,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.2,
+            "noise": 0.8,
+            "redundancy": 0.0
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "P01",
+          "category": "parafrasis",
+          "question": "Si me caso, ¿cuántos días libres pagados me dan?",
+          "response": {
+            "answer": "No se dispone de información sobre días libres pagados por matrimonio en los fragmentos proporcionados.",
+            "sources": [],
+            "abstained": true,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "CT-GT-1441-v2007-p39-c1",
+            "CT-GT-1441-v2007-p106-c2",
+            "CT-GT-1441-v2007-p16-c5",
+            "CT-GT-1441-v2007-p96-c2",
+            "POL-RH-001-v2026-01-p2-c1"
+          ],
+          "latency_s": 0.508,
+          "llm_calls": 1,
+          "prompt_tokens": 1154,
+          "completion_tokens": 79,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 0.0,
+            "recall@1": 0.0,
+            "recall@3": 0.0,
+            "mrr": 0.0,
+            "precision@5": 0.0,
+            "noise": 1.0,
+            "redundancy": 0.0
+          },
+          "keyword_coverage": 0.0,
+          "citation_precision": null,
+          "abstention_correct": false,
+          "behavior_pass": false,
+          "db_write": false
+        },
+        {
+          "id": "P02",
+          "category": "parafrasis",
+          "question": "Si trabajo desde mi casa, ¿la empresa me ayuda con la compu o con el internet?",
+          "response": {
+            "answer": "No hay disposición en los fragmentos proporcionados que establezca la obligación de la empresa de proporcionar equipos de cómputo o servicios de internet al trabajador que realiza sus labores desde casa.",
+            "sources": [],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "CT-GT-1441-v2007-p35-c4",
+            "CT-GT-1441-v2007-p71-c2",
+            "CT-GT-1441-v2007-p44-c1",
+            "CT-GT-1441-v2007-p44-c2",
+            "CT-GT-1441-v2007-p130-c1"
+          ],
+          "latency_s": 0.555,
+          "llm_calls": 1,
+          "prompt_tokens": 1305,
+          "completion_tokens": 93,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 0.0,
+            "recall@1": 0.0,
+            "recall@3": 0.0,
+            "mrr": 0.0,
+            "precision@5": 0.0,
+            "noise": 1.0,
+            "redundancy": 0.19999999999999996
+          },
+          "keyword_coverage": 0.0,
+          "citation_precision": null,
+          "abstention_correct": true,
+          "behavior_pass": false,
+          "db_write": false
+        },
+        {
+          "id": "P03",
+          "category": "parafrasis",
+          "question": "Si la empresa me corre sin una causa justificada, ¿qué me tienen que pagar por el tiempo que trabajé?",
+          "response": {
+            "answer": "Si la empresa te despide sin una causa justificada, debe pagarte las indemnizaciones que le corresponden según el Código de Trabajo, además de los salarios dejados de percibir desde el momento del despido hasta el pago de la indemnización (como daños y perjuicios), con un máximo de doce meses de salario, y también las costas judiciales.",
+            "sources": [
+              {
+                "source": "codigo_trabajo_gt.pdf",
+                "page": 27,
+                "chunk_id": "CT-GT-1441-v2007-p27-c2",
+                "version": "2007"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "CT-GT-1441-v2007-p28-c4",
+            "CT-GT-1441-v2007-p41-c4",
+            "CT-GT-1441-v2007-p23-c5",
+            "CT-GT-1441-v2007-p29-c1",
+            "CT-GT-1441-v2007-p27-c2"
+          ],
+          "latency_s": 0.633,
+          "llm_calls": 1,
+          "prompt_tokens": 1379,
+          "completion_tokens": 114,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 0.5,
+            "recall@1": 0.5,
+            "recall@3": 0.5,
+            "mrr": 1.0,
+            "precision@5": 0.2,
+            "noise": 0.8,
+            "redundancy": 0.0
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 0.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "L01",
+          "category": "lexica",
+          "question": "¿Qué establece el artículo 130 del Código de Trabajo?",
+          "response": {
+            "answer": "El artículo 130 establece que todo trabajador, sin excepción, tiene derecho a un período de vacaciones remuneradas después de cada año de trabajo continuo al servicio del mismo patrono, con una duración mínima de quince días hábiles. La continuidad del trabajo se determina según las reglas de los incisos c) y d) del artículo 82.",
+            "sources": [
+              {
+                "source": "codigo_trabajo_gt.pdf",
+                "page": 38,
+                "chunk_id": "CT-GT-1441-v2007-p38-c4",
+                "version": "2007"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "CT-GT-1441-v2007-p38-c4",
+            "POL-RH-002-v2025-01-p1-c2",
+            "POL-RH-002-v2026-01-p1-c2",
+            "CT-GT-1441-v2007-p12-c6",
+            "CT-GT-1441-v2007-p165-c2"
+          ],
+          "latency_s": 0.623,
+          "llm_calls": 1,
+          "prompt_tokens": 887,
+          "completion_tokens": 108,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.2,
+            "noise": 0.8,
+            "redundancy": 0.0
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "L02",
+          "category": "lexica",
+          "question": "¿Para qué se utiliza el formulario RH-F-12?",
+          "response": {
+            "answer": "El formulario RH‑F‑12 se utiliza para registrar los días de teletrabajo acordados con el jefe inmediato.",
+            "sources": [
+              {
+                "source": "POL-RH-003_teletrabajo_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-003-v2026-01-p1-c3",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-003-v2026-01-p1-c3",
+            "POL-RH-002-v2025-01-p1-c3",
+            "POL-RH-002-v2026-01-p1-c3",
+            "POL-RH-001-v2026-01-p1-c3",
+            "CT-GT-1441-v2007-p151-c3"
+          ],
+          "latency_s": 0.603,
+          "llm_calls": 1,
+          "prompt_tokens": 987,
+          "completion_tokens": 86,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.2,
+            "noise": 0.8,
+            "redundancy": 0.0
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "L03",
+          "category": "lexica",
+          "question": "¿Qué debo declarar en el formulario CUM-F-01?",
+          "response": {
+            "answer": "Debes declarar por escrito cualquier relación familiar, comercial o financiera que tengas con proveedores, clientes o competidores.",
+            "sources": [
+              {
+                "source": "POL-RH-005_etica_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-005-v2026-01-p1-c4",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-005-v2026-01-p1-c4",
+            "POL-RH-005-v2026-01-p1-c3",
+            "POL-RH-003-v2026-01-p1-c3",
+            "POL-RH-002-v2025-01-p1-c3",
+            "CT-GT-1441-v2007-p99-c3"
+          ],
+          "latency_s": 0.396,
+          "llm_calls": 1,
+          "prompt_tokens": 875,
+          "completion_tokens": 61,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.4,
+            "noise": 0.6,
+            "redundancy": 0.19999999999999996
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "M01",
+          "category": "compuesta",
+          "question": "¿Cuántos días de vacaciones me corresponden al año y con cuánta anticipación debo solicitarlas?",
+          "response": {
+            "answer": "Te corresponden quince días hábiles de vacaciones remuneradas al año (con un día extra por cada cinco años de antigüedad, hasta un máximo de tres días adicionales). La solicitud debe hacerse con al menos diez días hábiles de anticipación mediante el formulario electrónico RH‑F‑07 en el portal de colaboradores o a través del asistente virtual.",
+            "sources": [
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-002-v2026-01-p1-c2",
+                "version": "2026-01"
+              },
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-002-v2026-01-p1-c3",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-002-v2025-01-p1-c3",
+            "POL-RH-002-v2026-01-p1-c3",
+            "POL-RH-002-v2025-01-p1-c2",
+            "POL-RH-002-v2026-01-p1-c2",
+            "CT-GT-1441-v2007-p38-c8"
+          ],
+          "latency_s": 0.571,
+          "llm_calls": 1,
+          "prompt_tokens": 845,
+          "completion_tokens": 148,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 0.0,
+            "recall@3": 0.5,
+            "mrr": 0.5,
+            "precision@5": 0.6,
+            "noise": 0.4,
+            "redundancy": 0.4
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "M02",
+          "category": "compuesta",
+          "question": "¿Quién puede optar al teletrabajo y en qué casos se puede revocar?",
+          "response": {
+            "answer": "Pueden optar al teletrabajo los colaboradores que ocupen puestos administrativos, que ya hayan superado el período de prueba y cuenten con al menos tres meses de servicio; el personal de bodega, despacho y atención en tienda no es elegible. El teletrabajo puede revocarse cuando el colaborador tenga un bajo desempeño documentado o por necesidades operativas de la empresa, siempre con un aviso mínimo de cinco días hábiles.",
+            "sources": [
+              {
+                "source": "POL-RH-003_teletrabajo_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-003-v2026-01-p1-c2",
+                "version": "2026-01"
+              },
+              {
+                "source": "POL-RH-003_teletrabajo_v2026.md",
+                "page": 2,
+                "chunk_id": "POL-RH-003-v2026-01-p2-c3",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-003-v2026-01-p2-c3",
+            "POL-RH-003-v2026-01-p1-c2",
+            "POL-RH-003-v2026-01-p1-c3",
+            "CT-GT-1441-v2007-p83-c4",
+            "CT-GT-1441-v2007-p54-c5"
+          ],
+          "latency_s": 0.887,
+          "llm_calls": 1,
+          "prompt_tokens": 935,
+          "completion_tokens": 139,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 0.5,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.6,
+            "noise": 0.4,
+            "redundancy": 0.19999999999999996
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "M03",
+          "category": "compuesta",
+          "question": "¿Cuándo se paga el aguinaldo y cuándo se paga el Bono 14?",
+          "response": {
+            "answer": "El aguinaldo se paga en dos partes: el 50 % en la primera quincena de diciembre y el 50 % restante en la segunda quincena de enero. El Bono 14 (bonificación anual) se paga en la primera quincena de julio.",
+            "sources": [
+              {
+                "source": "POL-RH-004_beneficios_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-004-v2026-01-p1-c2",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-004-v2026-01-p1-c2",
+            "POL-RH-004-v2026-01-p2-c2",
+            "POL-RH-004-v2026-01-p2-c1",
+            "FORO-001-v2026-03-p1-c1",
+            "CT-GT-1441-v2007-p11-c3"
+          ],
+          "latency_s": 0.766,
+          "llm_calls": 1,
+          "prompt_tokens": 1069,
+          "completion_tokens": 101,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.2,
+            "noise": 0.8,
+            "redundancy": 0.19999999999999996
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "A01",
+          "category": "ambigua",
+          "question": "¿Cuántos días me dan?",
+          "response": {
+            "answer": "Tienes hasta tres días hábiles después del inicio de la ausencia para presentar el certificado médico a Recursos Humanos.",
+            "sources": [
+              {
+                "source": "POL-RH-001_reglamento_interior_v2026.md",
+                "page": 2,
+                "chunk_id": "POL-RH-001-v2026-01-p2-c1",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-001-v2026-01-p2-c1",
+            "CT-GT-1441-v2007-p50-c2",
+            "CT-GT-1441-v2007-p19-c2",
+            "CT-GT-1441-v2007-p97-c1",
+            "CT-GT-1441-v2007-p158-c1"
+          ],
+          "latency_s": 6.7,
+          "llm_calls": 1,
+          "prompt_tokens": 1397,
+          "completion_tokens": 117,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": null,
+          "keyword_coverage": null,
+          "citation_precision": null,
+          "abstention_correct": true,
+          "behavior_pass": false,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "A02",
+          "category": "ambigua",
+          "question": "¿Cuál es el plazo que tengo?",
+          "response": {
+            "answer": "Tienes un plazo de diez (10) días para que, una vez que el Consejo Técnico haya señalado observaciones al pacto, las partes negociadoras ajusten el documento a la normativa legal.",
+            "sources": [
+              {
+                "source": "codigo_trabajo_gt.pdf",
+                "page": 161,
+                "chunk_id": "CT-GT-1441-v2007-p161-c5",
+                "version": "2007"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "CT-GT-1441-v2007-p161-c5",
+            "CT-GT-1441-v2007-p162-c1",
+            "CT-GT-1441-v2007-p19-c5",
+            "CT-GT-1441-v2007-p30-c5",
+            "CT-GT-1441-v2007-p13-c4"
+          ],
+          "latency_s": 6.952,
+          "llm_calls": 1,
+          "prompt_tokens": 1224,
+          "completion_tokens": 154,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": null,
+          "keyword_coverage": null,
+          "citation_precision": null,
+          "abstention_correct": true,
+          "behavior_pass": false,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "N01",
+          "category": "sin_respuesta",
+          "question": "¿Cuál es la política de la empresa sobre llevar mascotas a la oficina?",
+          "response": {
+            "answer": "No se encuentra en los fragmentos proporcionados información sobre la política de la empresa respecto a llevar mascotas a la oficina.",
+            "sources": [],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "CT-GT-1441-v2007-p103-c5",
+            "POL-RH-003-v2026-01-p1-c1",
+            "POL-RH-004-v2026-01-p1-c1",
+            "POL-RH-002-v2025-01-p1-c1",
+            "POL-RH-002-v2026-01-p1-c1"
+          ],
+          "latency_s": 4.05,
+          "llm_calls": 1,
+          "prompt_tokens": 814,
+          "completion_tokens": 97,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": null,
+          "keyword_coverage": null,
+          "citation_precision": null,
+          "abstention_correct": false,
+          "behavior_pass": true,
+          "db_write": false
+        },
+        {
+          "id": "N02",
+          "category": "sin_respuesta",
+          "question": "¿Cuánto es exactamente el salario mínimo mensual vigente en 2026 para actividades no agrícolas?",
+          "response": {
+            "answer": "No se dispone de la información exacta del salario mínimo mensual vigente en 2026 para actividades no agrícolas en los fragmentos proporcionados.",
+            "sources": [
+              {
+                "source": "codigo_trabajo_gt.pdf",
+                "page": 61,
+                "chunk_id": "CT-GT-1441-v2007-p61-c6",
+                "version": "2007"
+              },
+              {
+                "source": "codigo_trabajo_gt.pdf",
+                "page": 61,
+                "chunk_id": "CT-GT-1441-v2007-p61-c5",
+                "version": "2007"
+              },
+              {
+                "source": "codigo_trabajo_gt.pdf",
+                "page": 79,
+                "chunk_id": "CT-GT-1441-v2007-p79-c1",
+                "version": "2007"
+              },
+              {
+                "source": "POL-RH-006_bandas_salariales_disciplina_CONFIDENCIAL_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-006-v2026-01-p1-c2",
+                "version": "2026-01"
+              },
+              {
+                "source": "codigo_trabajo_gt.pdf",
+                "page": 62,
+                "chunk_id": "CT-GT-1441-v2007-p62-c1",
+                "version": "2007"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "CT-GT-1441-v2007-p61-c6",
+            "CT-GT-1441-v2007-p61-c5",
+            "CT-GT-1441-v2007-p79-c1",
+            "POL-RH-006-v2026-01-p1-c2",
+            "CT-GT-1441-v2007-p62-c1"
+          ],
+          "latency_s": 10.873,
+          "llm_calls": 1,
+          "prompt_tokens": 1448,
+          "completion_tokens": 91,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": null,
+          "keyword_coverage": null,
+          "citation_precision": null,
+          "abstention_correct": false,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "V01",
+          "category": "version",
+          "question": "Según la política vigente, ¿con cuánta anticipación se deben solicitar las vacaciones?",
+          "response": {
+            "answer": "Según la política vigente, las vacaciones deben solicitarse con al menos diez días hábiles de anticipación.",
+            "sources": [
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-002-v2026-01-p1-c3",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-002-v2025-01-p1-c3",
+            "POL-RH-002-v2026-01-p1-c3",
+            "POL-RH-002-v2026-01-p1-c1",
+            "POL-RH-002-v2025-01-p1-c1",
+            "POL-RH-003-v2026-01-p1-c1"
+          ],
+          "latency_s": 0.552,
+          "llm_calls": 1,
+          "prompt_tokens": 859,
+          "completion_tokens": 80,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 0.0,
+            "recall@3": 1.0,
+            "mrr": 0.5,
+            "precision@5": 0.4,
+            "noise": 0.6,
+            "redundancy": 0.4
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "V02",
+          "category": "version",
+          "question": "¿Qué cambió en la licencia de paternidad entre la política de 2025 y la de 2026?",
+          "response": {
+            "answer": "En la política de 2025 la licencia de paternidad era de dos días por nacimiento de hijo, mientras que en la política de 2026 se amplió a cinco días hábiles de licencia de paternidad (un beneficio superior al mínimo legal).",
+            "sources": [
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 2,
+                "chunk_id": "POL-RH-002-v2026-01-p2-c1",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-002-v2025-01-p2-c1",
+            "POL-RH-002-v2026-01-p2-c1",
+            "POL-RH-002-v2026-01-p1-c2",
+            "POL-RH-006-v2026-01-p1-c2",
+            "CT-GT-1441-v2007-p22-c1"
+          ],
+          "latency_s": 3.809,
+          "llm_calls": 1,
+          "prompt_tokens": 1104,
+          "completion_tokens": 110,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 0.5,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.4,
+            "noise": 0.6,
+            "redundancy": 0.0
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 0.5,
+          "relevance": 0.5
+        },
+        {
+          "id": "T01",
+          "category": "herramienta_nominal",
+          "question": "¿Cuántos días de vacaciones me quedan?",
+          "response": {
+            "answer": "No dispongo de información sobre su historial de vacaciones para determinar cuántos días le quedan.",
+            "sources": [
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-002-v2026-01-p1-c2",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": true,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-002-v2026-01-p1-c2",
+            "POL-RH-002-v2025-01-p1-c2",
+            "POL-RH-002-v2025-01-p1-c3",
+            "POL-RH-002-v2026-01-p1-c3",
+            "POL-RH-002-v2025-01-p2-c1"
+          ],
+          "latency_s": 3.873,
+          "llm_calls": 1,
+          "prompt_tokens": 807,
+          "completion_tokens": 68,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": null,
+          "keyword_coverage": 0.0,
+          "citation_precision": null,
+          "abstention_correct": true,
+          "behavior_pass": false,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "T02",
+          "category": "herramienta_nominal",
+          "question": "¿Cuánto me tocaría de Bono 14 con un salario de Q6,000 si entré el 2026-01-01?",
+          "response": {
+            "answer": "Te corresponde un Bono 14 equivalente a un salario mensual completo, es decir Q6,000.00, ya que ingresaste el 1 de enero y por lo tanto cubres todo el período de cálculo del bono.",
+            "sources": [
+              {
+                "source": "POL-RH-004_beneficios_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-004-v2026-01-p1-c2",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-004-v2026-01-p2-c1",
+            "POL-RH-006-v2026-01-p1-c2",
+            "POL-RH-004-v2026-01-p2-c2",
+            "POL-RH-004-v2026-01-p1-c2",
+            "FORO-001-v2026-03-p1-c1"
+          ],
+          "latency_s": 5.929,
+          "llm_calls": 1,
+          "prompt_tokens": 1124,
+          "completion_tokens": 122,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 0.0,
+            "recall@3": 0.0,
+            "mrr": 0.25,
+            "precision@5": 0.2,
+            "noise": 0.8,
+            "redundancy": 0.19999999999999996
+          },
+          "keyword_coverage": 0.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": false,
+          "db_write": false,
+          "faithfulness": 0.5,
+          "relevance": 0.8
+        },
+        {
+          "id": "T03",
+          "category": "herramienta_seleccion",
+          "question": "¿Cómo se calcula el aguinaldo según la política de la empresa?",
+          "response": {
+            "answer": "El aguinaldo se calcula de acuerdo al Decreto 76‑78 y equivale a un salario ordinario mensual por cada año laborado, o la parte proporcional correspondiente si el empleado no ha completado el año. Se paga la mitad en la primera quincena de diciembre y la otra mitad en la segunda quincena de enero.",
+            "sources": [
+              {
+                "source": "POL-RH-004_beneficios_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-004-v2026-01-p1-c2",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-004-v2026-01-p2-c2",
+            "POL-RH-004-v2026-01-p1-c2",
+            "POL-RH-003-v2026-01-p1-c1",
+            "POL-RH-004-v2026-01-p1-c1",
+            "POL-RH-002-v2025-01-p1-c1"
+          ],
+          "latency_s": 4.19,
+          "llm_calls": 1,
+          "prompt_tokens": 943,
+          "completion_tokens": 114,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 0.0,
+            "recall@3": 1.0,
+            "mrr": 0.5,
+            "precision@5": 0.4,
+            "noise": 0.6,
+            "redundancy": 0.19999999999999996
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "T04",
+          "category": "herramienta_rango",
+          "question": "Calcula mi indemnización con un salario de Q500,000 desde 2020-01-01 hasta 2026-11-01",
+          "response": {
+            "answer": "Con base en el Artículo 82 del Código de Trabajo, la indemnización corresponde a un mes de salario por cada año de servicio continuo, calculándose de forma proporcional si no se completa el año. Desde el 1 de enero de 2020 hasta el 1 de noviembre de 2026 hay aproximadamente 6 años y 10 meses, es decir 6,83 años. Por lo tanto, la indemnización sería 6,83 meses × Q500,000 ≈ Q3,415,000.",
+            "sources": [
+              {
+                "source": "codigo_trabajo_gt.pdf",
+                "page": 28,
+                "chunk_id": "CT-GT-1441-v2007-p28-c5",
+                "version": "2007"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-006-v2026-01-p1-c2",
+            "POL-RH-004-v2026-01-p2-c2",
+            "POL-RH-004-v2026-01-p2-c1",
+            "CT-GT-1441-v2007-p28-c5",
+            "CT-GT-1441-v2007-p42-c5"
+          ],
+          "latency_s": 6.359,
+          "llm_calls": 1,
+          "prompt_tokens": 1174,
+          "completion_tokens": 259,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": null,
+          "keyword_coverage": 0.0,
+          "citation_precision": null,
+          "abstention_correct": true,
+          "behavior_pass": false,
+          "db_write": false,
+          "faithfulness": 0.5,
+          "relevance": 0.8
+        },
+        {
+          "id": "T05",
+          "category": "herramienta_confirmacion",
+          "question": "Quiero solicitar 5 días de vacaciones a partir del 2026-12-21",
+          "response": {
+            "answer": "Según la política vigente en 2026, la solicitud de vacaciones debe hacerse al menos diez días hábiles antes de la fecha de inicio, mediante el formulario electrónico RH‑F‑07 en el portal de colaboradores o a través del asistente virtual, y requiere la aprobación del jefe inmediato. Por lo tanto, para solicitar 5 días de vacaciones a partir del 21‑12‑2026, deberás registrar la solicitud al menos diez días hábiles antes de esa fecha y esperar la confirmación y aprobación del jefe.",
+            "sources": [
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-002-v2026-01-p1-c3",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-002-v2025-01-p1-c3",
+            "POL-RH-002-v2026-01-p1-c3",
+            "POL-RH-002-v2026-01-p1-c2",
+            "POL-RH-002-v2026-01-p2-c3",
+            "CT-GT-1441-v2007-p164-c5"
+          ],
+          "latency_s": 6.02,
+          "llm_calls": 1,
+          "prompt_tokens": 980,
+          "completion_tokens": 192,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": null,
+          "keyword_coverage": 1.0,
+          "citation_precision": null,
+          "abstention_correct": true,
+          "behavior_pass": false,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "T06",
+          "category": "herramienta_indisponible",
+          "question": "¿Cuántos días de vacaciones me quedan disponibles?",
+          "response": {
+            "answer": "No dispongo de información sobre su historial de vacaciones ni la fecha de inicio de su servicio, por lo que no puedo determinar cuántos días de vacaciones le quedan disponibles.",
+            "sources": [
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-002-v2026-01-p1-c2",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": true,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-002-v2026-01-p1-c2",
+            "POL-RH-002-v2025-01-p1-c2",
+            "POL-RH-002-v2025-01-p1-c3",
+            "POL-RH-002-v2026-01-p1-c3",
+            "POL-RH-002-v2025-01-p2-c1"
+          ],
+          "latency_s": 4.642,
+          "llm_calls": 1,
+          "prompt_tokens": 1064,
+          "completion_tokens": 94,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": null,
+          "keyword_coverage": 0.0,
+          "citation_precision": null,
+          "abstention_correct": false,
+          "behavior_pass": false,
+          "db_write": false
+        },
+        {
+          "id": "T07",
+          "category": "herramienta_compuesta",
+          "question": "¿Cuántos días de vacaciones me quedan y además con cuánta anticipación debo pedirlas?",
+          "response": {
+            "answer": "Según la política vigente (documento C2), la solicitud de vacaciones debe hacerse con al menos diez días hábiles de anticipación mediante el formulario electrónico RH‑F‑07 en el portal de colaboradores o mediante el asistente virtual. En cuanto al número de días de vacaciones que le corresponden, la normativa establece que todo colaborador tiene derecho a quince días hábiles de vacaciones remuneradas después de cada año de servicio continuo (ver C4). Por lo tanto, para saber cuántos días le quedan exactamente, debe consultar su saldo individual en el sistema de recursos humanos.",
+            "sources": [
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-002-v2026-01-p1-c3",
+                "version": "2026-01"
+              },
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-002-v2026-01-p1-c2",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "baseline",
+            "trace_id": null
+          },
+          "context_ids": [
+            "POL-RH-002-v2025-01-p1-c3",
+            "POL-RH-002-v2026-01-p1-c3",
+            "FORO-001-v2026-03-p1-c1",
+            "POL-RH-002-v2026-01-p1-c2",
+            "POL-RH-002-v2025-01-p1-c2"
+          ],
+          "latency_s": 0.902,
+          "llm_calls": 1,
+          "prompt_tokens": 845,
+          "completion_tokens": 219,
+          "events": [
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 0.0,
+            "recall@3": 1.0,
+            "mrr": 0.5,
+            "precision@5": 0.4,
+            "noise": 0.6,
+            "redundancy": 0.4
+          },
+          "keyword_coverage": 0.5,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": false,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        }
+      ]
+    },
+    "mejorado": {
+      "summary": {
+        "n_cases": 27,
+        "behavior_accuracy": 1.0,
+        "recall@5": 0.9722,
+        "mrr": 0.9352,
+        "noise": 0.5778,
+        "keyword_coverage": 1.0,
+        "citation_precision": 0.9474,
+        "abstention_accuracy_unanswerable": 1.0,
+        "false_abstention_rate": 0.0,
+        "faithfulness_judge": 0.9636,
+        "relevance_judge": 0.9682,
+        "latency": {
+          "mean_s": 4.743,
+          "p50_s": 5.429,
+          "p95_s": 9.93,
+          "max_s": 10.18
+        },
+        "llm_calls": 21,
+        "prompt_tokens": 28442,
+        "completion_tokens": 2399,
+        "refusal_rate_unanswerable": 1.0,
+        "confidential_citations_to_non_rrhh": 0,
+        "llm_errors_retries": 21,
+        "fallback_responses": 1,
+        "est_cost_usd": 0.00571,
+        "cost_per_query_usd": 0.000211,
+        "behavior_by_category": {
+          "directa": 1.0,
+          "parafrasis": 1.0,
+          "lexica": 1.0,
+          "compuesta": 1.0,
+          "ambigua": 1.0,
+          "sin_respuesta": 1.0,
+          "version": 1.0,
+          "herramienta_nominal": 1.0,
+          "herramienta_seleccion": 1.0,
+          "herramienta_rango": 1.0,
+          "herramienta_confirmacion": 1.0,
+          "herramienta_indisponible": 1.0,
+          "herramienta_compuesta": 1.0
+        }
+      },
+      "rows": [
+        {
+          "id": "D01",
+          "category": "directa",
+          "question": "¿Cuántos días hábiles de vacaciones tiene derecho un trabajador después de un año de trabajo continuo?",
+          "response": {
+            "answer": "Un trabajador tiene derecho a quince (15) días hábiles de vacaciones remuneradas después de cada año de servicio continuo.",
+            "sources": [
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-002-v2026-01-p1-c2",
+                "version": "2026-01"
+              },
+              {
+                "source": "codigo_trabajo_gt.pdf",
+                "page": 38,
+                "chunk_id": "CT-GT-1441-v2007-p38-c4",
+                "version": "2007"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": true,
+            "intent": "consulta_documental",
+            "trace_id": "79f3247c0859"
+          },
+          "context_ids": [
+            "POL-RH-002-v2026-01-p1-c2",
+            "CT-GT-1441-v2007-p38-c4",
+            "CT-GT-1441-v2007-p38-c6",
+            "CT-GT-1441-v2007-p37-c7",
+            "POL-RH-002-v2026-01-p1-c3"
+          ],
+          "latency_s": 6.38,
+          "llm_calls": 1,
+          "prompt_tokens": 1143,
+          "completion_tokens": 75,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [
+            "cifras_sin_respaldo:15"
+          ],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 0.5,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.8,
+            "noise": 0.19999999999999996,
+            "redundancy": 0.4
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "D02",
+          "category": "directa",
+          "question": "¿Cuántos días de teletrabajo por semana permite la política de la empresa?",
+          "response": {
+            "answer": "La política permite un máximo de dos días de teletrabajo por semana.",
+            "sources": [
+              {
+                "source": "POL-RH-003_teletrabajo_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-003-v2026-01-p1-c3",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "consulta_documental",
+            "trace_id": "9fe1dc8d94c8"
+          },
+          "context_ids": [
+            "POL-RH-003-v2026-01-p1-c3",
+            "POL-RH-003-v2026-01-p2-c3",
+            "CT-GT-1441-v2007-p37-c7",
+            "POL-RH-003-v2026-01-p1-c2",
+            "POL-RH-002-v2026-01-p1-c2"
+          ],
+          "latency_s": 1.891,
+          "llm_calls": 1,
+          "prompt_tokens": 1031,
+          "completion_tokens": 61,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.4,
+            "noise": 0.6,
+            "redundancy": 0.19999999999999996
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "D03",
+          "category": "directa",
+          "question": "¿Cuál es el monto del auxilio de conectividad para quienes hacen teletrabajo?",
+          "response": {
+            "answer": "El auxilio de conectividad para los colaboradores en teletrabajo es de Q150.00 mensuales.",
+            "sources": [
+              {
+                "source": "POL-RH-003_teletrabajo_v2026.md",
+                "page": 2,
+                "chunk_id": "POL-RH-003-v2026-01-p2-c1",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "consulta_documental",
+            "trace_id": "abca70031cbf"
+          },
+          "context_ids": [
+            "POL-RH-003-v2026-01-p2-c1",
+            "POL-RH-003-v2026-01-p1-c3",
+            "POL-RH-004-v2026-01-p2-c1",
+            "POL-RH-003-v2026-01-p2-c2",
+            "POL-RH-003-v2026-01-p2-c3"
+          ],
+          "latency_s": 2.645,
+          "llm_calls": 1,
+          "prompt_tokens": 1089,
+          "completion_tokens": 68,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.6,
+            "noise": 0.4,
+            "redundancy": 0.4
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "D04",
+          "category": "directa",
+          "question": "¿Cuál es el valor máximo de un regalo que puedo aceptar de un proveedor?",
+          "response": {
+            "answer": "El valor máximo de un regalo que puedes aceptar de un proveedor es Q200.00.",
+            "sources": [
+              {
+                "source": "POL-RH-005_etica_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-005-v2026-01-p1-c3",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "consulta_documental",
+            "trace_id": "81fc471097c3"
+          },
+          "context_ids": [
+            "POL-RH-005-v2026-01-p1-c3",
+            "CT-GT-1441-v2007-p32-c1",
+            "CT-GT-1441-v2007-p31-c3",
+            "CT-GT-1441-v2007-p96-c1",
+            "CT-GT-1441-v2007-p98-c3"
+          ],
+          "latency_s": 5.894,
+          "llm_calls": 1,
+          "prompt_tokens": 1698,
+          "completion_tokens": 62,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.2,
+            "noise": 0.8,
+            "redundancy": 0.0
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "D05",
+          "category": "directa",
+          "question": "¿A partir de qué hora se considera una llegada tardía?",
+          "response": {
+            "answer": "Se considera llegada tardía el ingreso posterior a las 8:10 horas.",
+            "sources": [
+              {
+                "source": "POL-RH-001_reglamento_interior_v2026.md",
+                "page": 2,
+                "chunk_id": "POL-RH-001-v2026-01-p2-c1",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "consulta_documental",
+            "trace_id": "a97f77b19db4"
+          },
+          "context_ids": [
+            "POL-RH-001-v2026-01-p2-c1",
+            "CT-GT-1441-v2007-p98-c3",
+            "CT-GT-1441-v2007-p38-c6",
+            "CT-GT-1441-v2007-p81-c2",
+            "CT-GT-1441-v2007-p42-c4"
+          ],
+          "latency_s": 9.898,
+          "llm_calls": 1,
+          "prompt_tokens": 1542,
+          "completion_tokens": 69,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.2,
+            "noise": 0.8,
+            "redundancy": 0.0
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "P01",
+          "category": "parafrasis",
+          "question": "Si me caso, ¿cuántos días libres pagados me dan?",
+          "response": {
+            "answer": "Te otorgan cinco (5) días de permiso con goce de salario por contraer matrimonio.",
+            "sources": [
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 2,
+                "chunk_id": "POL-RH-002-v2026-01-p2-c1",
+                "version": "2026-01"
+              },
+              {
+                "source": "codigo_trabajo_gt.pdf",
+                "page": 22,
+                "chunk_id": "CT-GT-1441-v2007-p22-c1",
+                "version": "2007"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": true,
+            "intent": "consulta_documental",
+            "trace_id": "842e2891aa08"
+          },
+          "context_ids": [
+            "POL-RH-002-v2026-01-p2-c1",
+            "CT-GT-1441-v2007-p22-c1",
+            "CT-GT-1441-v2007-p38-c2",
+            "POL-RH-002-v2026-01-p1-c2",
+            "CT-GT-1441-v2007-p41-c6"
+          ],
+          "latency_s": 8.033,
+          "llm_calls": 1,
+          "prompt_tokens": 1690,
+          "completion_tokens": 89,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.2,
+            "noise": 0.8,
+            "redundancy": 0.0
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 0.5,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "P02",
+          "category": "parafrasis",
+          "question": "Si trabajo desde mi casa, ¿la empresa me ayuda con la compu o con el internet?",
+          "response": {
+            "answer": "Sí. La empresa proporciona una computadora portátil y acceso VPN, y además otorga un auxilio de conectividad de Q150.00 mensuales, que no forma parte del salario ordinario.",
+            "sources": [
+              {
+                "source": "POL-RH-003_teletrabajo_v2026.md",
+                "page": 2,
+                "chunk_id": "POL-RH-003-v2026-01-p2-c1",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "consulta_documental",
+            "trace_id": "c81bdbbad400"
+          },
+          "context_ids": [
+            "POL-RH-003-v2026-01-p2-c1",
+            "POL-RH-003-v2026-01-p2-c3",
+            "CT-GT-1441-v2007-p21-c4",
+            "POL-RH-003-v2026-01-p1-c3",
+            "CT-GT-1441-v2007-p22-c5"
+          ],
+          "latency_s": 8.176,
+          "llm_calls": 1,
+          "prompt_tokens": 1371,
+          "completion_tokens": 95,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.4,
+            "noise": 0.6,
+            "redundancy": 0.19999999999999996
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "P03",
+          "category": "parafrasis",
+          "question": "Si la empresa me corre sin una causa justificada, ¿qué me tienen que pagar por el tiempo que trabajé?",
+          "response": {
+            "answer": "El servicio de generación no está disponible en este momento. El fragmento más relevante encontrado en Código de Trabajo de Guatemala, Decreto 1441 (Edición Conmemorativa MINTRAB 1947-2007) (versión 2007, pág. 28) indica:\n\nARTÍCULO 82. Si el contrato de trabajo por tiempo indeterminado concluye una vez transcurrido el período de prueba, por razón de despido injustificado del trabajador, o por alguna de las causas previstas en el Artículo 79, el patrono debe pagar a éste una indemnización por tiempo servido equivalente a un mes de salario por cada año de servicio continuos y si los servicios no alcanzan a un año, en forma proporcional al plazo trabajado. Para los efectos del cómputo de servicios continuos, se debe tomar en cuenta la fecha en que se haya iniciado la relación de trabajo, cualquiera que ésta…",
+            "sources": [
+              {
+                "source": "codigo_trabajo_gt.pdf",
+                "page": 28,
+                "chunk_id": "CT-GT-1441-v2007-p28-c5",
+                "version": "2007"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": true,
+            "intent": "consulta_documental",
+            "trace_id": "6f915a10803f"
+          },
+          "context_ids": [
+            "CT-GT-1441-v2007-p28-c5",
+            "CT-GT-1441-v2007-p28-c2",
+            "CT-GT-1441-v2007-p27-c2",
+            "CT-GT-1441-v2007-p41-c4",
+            "CT-GT-1441-v2007-p29-c3"
+          ],
+          "latency_s": 9.586,
+          "llm_calls": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:extractive"
+          ],
+          "guard_issues": [
+            "cifras_sin_respaldo:1441,1947"
+          ],
+          "retrieval": {
+            "recall@5": 0.5,
+            "recall@1": 0.5,
+            "recall@3": 0.5,
+            "mrr": 1.0,
+            "precision@5": 0.4,
+            "noise": 0.6,
+            "redundancy": 0.19999999999999996
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "L01",
+          "category": "lexica",
+          "question": "¿Qué establece el artículo 130 del Código de Trabajo?",
+          "response": {
+            "answer": "El artículo 130 del Código de Trabajo establece que todo trabajador, sin excepción, tiene derecho a un período de vacaciones remuneradas después de cada año de trabajo continuo al servicio del mismo patrono, con una duración mínima de quince días hábiles.",
+            "sources": [
+              {
+                "source": "codigo_trabajo_gt.pdf",
+                "page": 38,
+                "chunk_id": "CT-GT-1441-v2007-p38-c4",
+                "version": "2007"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "consulta_documental",
+            "trace_id": "cd3daaf278b5"
+          },
+          "context_ids": [
+            "CT-GT-1441-v2007-p38-c4",
+            "POL-RH-002-v2026-01-p1-c2",
+            "CT-GT-1441-v2007-p38-c5",
+            "CT-GT-1441-v2007-p38-c6",
+            "CT-GT-1441-v2007-p33-c6"
+          ],
+          "latency_s": 1.473,
+          "llm_calls": 1,
+          "prompt_tokens": 1227,
+          "completion_tokens": 92,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.6,
+            "noise": 0.4,
+            "redundancy": 0.4
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "L02",
+          "category": "lexica",
+          "question": "¿Para qué se utiliza el formulario RH-F-12?",
+          "response": {
+            "answer": "El formulario RH‑F‑12 se utiliza para registrar los días de teletrabajo acordados con el jefe inmediato.",
+            "sources": [
+              {
+                "source": "POL-RH-003_teletrabajo_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-003-v2026-01-p1-c3",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "consulta_documental",
+            "trace_id": "6eb424792e5d"
+          },
+          "context_ids": [
+            "POL-RH-003-v2026-01-p1-c3",
+            "POL-RH-002-v2026-01-p1-c3",
+            "POL-RH-001-v2026-01-p1-c3",
+            "CT-GT-1441-v2007-p21-c1",
+            "CT-GT-1441-v2007-p103-c4"
+          ],
+          "latency_s": 1.643,
+          "llm_calls": 1,
+          "prompt_tokens": 1451,
+          "completion_tokens": 71,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.2,
+            "noise": 0.8,
+            "redundancy": 0.0
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "L03",
+          "category": "lexica",
+          "question": "¿Qué debo declarar en el formulario CUM-F-01?",
+          "response": {
+            "answer": "Debe declarar por escrito cualquier relación familiar, comercial o financiera que tenga con proveedores, clientes o competidores, según lo indica la política interna.",
+            "sources": [
+              {
+                "source": "POL-RH-005_etica_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-005-v2026-01-p1-c4",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "consulta_documental",
+            "trace_id": "025e409affc2"
+          },
+          "context_ids": [
+            "POL-RH-005-v2026-01-p1-c4",
+            "POL-RH-005-v2026-01-p1-c3",
+            "POL-RH-002-v2026-01-p1-c3",
+            "CT-GT-1441-v2007-p107-c1",
+            "CT-GT-1441-v2007-p164-c5"
+          ],
+          "latency_s": 3.675,
+          "llm_calls": 1,
+          "prompt_tokens": 1410,
+          "completion_tokens": 84,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.4,
+            "noise": 0.6,
+            "redundancy": 0.19999999999999996
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "M01",
+          "category": "compuesta",
+          "question": "¿Cuántos días de vacaciones me corresponden al año y con cuánta anticipación debo solicitarlas?",
+          "response": {
+            "answer": "Te corresponden quince (15) días hábiles de vacaciones remuneradas al año. Si tienes cinco o más años de antigüedad, recibes un día hábil extra por cada cinco años cumplidos, hasta un máximo de tres días adicionales. La solicitud debe hacerse al menos diez (10) días hábiles antes del inicio de las vacaciones, mediante el formulario electrónico RH‑F‑07 o el asistente virtual, y requiere la aprobación del jefe inmediato.",
+            "sources": [
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-002-v2026-01-p1-c2",
+                "version": "2026-01"
+              },
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-002-v2026-01-p1-c3",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": true,
+            "intent": "consulta_documental",
+            "trace_id": "80a9c8b46929"
+          },
+          "context_ids": [
+            "POL-RH-002-v2026-01-p1-c3",
+            "POL-RH-002-v2026-01-p1-c2",
+            "CT-GT-1441-v2007-p38-c5",
+            "CT-GT-1441-v2007-p38-c4",
+            "CT-GT-1441-v2007-p38-c6"
+          ],
+          "latency_s": 2.89,
+          "llm_calls": 1,
+          "prompt_tokens": 1194,
+          "completion_tokens": 170,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [
+            "cifras_sin_respaldo:15"
+          ],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 0.5,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 1.0,
+            "noise": 0.0,
+            "redundancy": 0.6
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "M02",
+          "category": "compuesta",
+          "question": "¿Quién puede optar al teletrabajo y en qué casos se puede revocar?",
+          "response": {
+            "answer": "Pueden optar al teletrabajo los colaboradores que ocupen puestos administrativos, que hayan superado el período de prueba y cuenten con al menos tres meses de servicio; el personal de bodega, despacho y atención en tienda no es elegible. El teletrabajo puede revocarse por bajo desempeño documentado o por necesidades operativas, siempre con un aviso de al menos cinco días hábiles.",
+            "sources": [
+              {
+                "source": "POL-RH-003_teletrabajo_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-003-v2026-01-p1-c2",
+                "version": "2026-01"
+              },
+              {
+                "source": "POL-RH-003_teletrabajo_v2026.md",
+                "page": 2,
+                "chunk_id": "POL-RH-003-v2026-01-p2-c3",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "consulta_documental",
+            "trace_id": "2ac4cfeddced"
+          },
+          "context_ids": [
+            "POL-RH-003-v2026-01-p2-c3",
+            "POL-RH-003-v2026-01-p1-c2",
+            "CT-GT-1441-v2007-p52-c2",
+            "CT-GT-1441-v2007-p80-c2",
+            "CT-GT-1441-v2007-p68-c10"
+          ],
+          "latency_s": 7.794,
+          "llm_calls": 1,
+          "prompt_tokens": 1242,
+          "completion_tokens": 131,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 0.5,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.4,
+            "noise": 0.6,
+            "redundancy": 0.0
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "M03",
+          "category": "compuesta",
+          "question": "¿Cuándo se paga el aguinaldo y cuándo se paga el Bono 14?",
+          "response": {
+            "answer": "El aguinaldo se paga en dos partes: el 50 % en la primera quincena de diciembre y el 50 % restante en la segunda quincena de enero. El Bono 14 (bonificación anual) se paga en la primera quincena de julio.",
+            "sources": [
+              {
+                "source": "POL-RH-004_beneficios_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-004-v2026-01-p1-c2",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": true,
+            "intent": "consulta_documental",
+            "trace_id": "04c31edce1e8"
+          },
+          "context_ids": [
+            "POL-RH-004-v2026-01-p1-c2",
+            "POL-RH-004-v2026-01-p2-c2",
+            "CT-GT-1441-v2007-p38-c2",
+            "CT-GT-1441-v2007-p38-c3",
+            "CT-GT-1441-v2007-p38-c8"
+          ],
+          "latency_s": 10.18,
+          "llm_calls": 1,
+          "prompt_tokens": 1550,
+          "completion_tokens": 135,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [
+            "cifras_sin_respaldo:50,50"
+          ],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.2,
+            "noise": 0.8,
+            "redundancy": 0.4
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "A01",
+          "category": "ambigua",
+          "question": "¿Cuántos días me dan?",
+          "response": {
+            "answer": "Según la política vigente, todo colaborador tiene derecho a quince (15) días hábiles de vacaciones remuneradas después de cada año de servicio continuo. Además, a partir de 2026, los colaboradores con cinco o más años de antigüedad reciben un día hábil extra por cada cinco años cumplidos, hasta un máximo de tres días adicionales. La solicitud de vacaciones debe hacerse con al menos diez (10) días hábiles de anticipación mediante el formulario electrónico RH‑F‑07 o el asistente virtual. (Interpretación principal: días de vacaciones). Si la pregunta se refiere a otro tipo de días (por ejemplo, asuetos, licencias, plazos de reclamo), la información disponible no cubre ese caso. Por favor, precise su consulta.",
+            "sources": [
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-002-v2026-01-p1-c2",
+                "version": "2026-01"
+              },
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-002-v2026-01-p1-c3",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": true,
+            "intent": "consulta_documental",
+            "trace_id": "833206858d77"
+          },
+          "context_ids": [
+            "POL-RH-002-v2026-01-p1-c2",
+            "CT-GT-1441-v2007-p60-c10",
+            "POL-RH-002-v2026-01-p1-c3",
+            "CT-GT-1441-v2007-p38-c2",
+            "CT-GT-1441-v2007-p60-c9"
+          ],
+          "latency_s": 7.342,
+          "llm_calls": 1,
+          "prompt_tokens": 1395,
+          "completion_tokens": 238,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": null,
+          "keyword_coverage": null,
+          "citation_precision": null,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "A02",
+          "category": "ambigua",
+          "question": "¿Cuál es el plazo que tengo?",
+          "response": {
+            "answer": "La pregunta es ambigua y puede referirse a distintos plazos según el contexto: • Plazo máximo para el pago del salario: no mayor a una quincena para trabajadores manuales o un mes para intelectuales y domésticos (C1). • Plazo del pacto colectivo: entre un año y cinco años, con prórroga automática salvo aviso con al menos un mes de anticipación (C2). • Plazo de prescripción para reclamar despido o sanciones: treinta días hábiles desde la terminación o la imposición de la corrección (C4). • Plazo para declarar huelga calificada: veinte días para trabajadores y tres días para patronos, contados según la normativa correspondiente (C5). Necesitamos que precise a qué tipo de plazo se refiere.",
+            "sources": [
+              {
+                "source": "codigo_trabajo_gt.pdf",
+                "page": 31,
+                "chunk_id": "CT-GT-1441-v2007-p31-c6",
+                "version": "2007"
+              },
+              {
+                "source": "codigo_trabajo_gt.pdf",
+                "page": 19,
+                "chunk_id": "CT-GT-1441-v2007-p19-c5",
+                "version": "2007"
+              },
+              {
+                "source": "codigo_trabajo_gt.pdf",
+                "page": 60,
+                "chunk_id": "CT-GT-1441-v2007-p60-c9",
+                "version": "2007"
+              },
+              {
+                "source": "codigo_trabajo_gt.pdf",
+                "page": 81,
+                "chunk_id": "CT-GT-1441-v2007-p81-c4",
+                "version": "2007"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": true,
+            "intent": "consulta_documental",
+            "trace_id": "257cf8465a94"
+          },
+          "context_ids": [
+            "CT-GT-1441-v2007-p31-c6",
+            "CT-GT-1441-v2007-p19-c5",
+            "CT-GT-1441-v2007-p13-c4",
+            "CT-GT-1441-v2007-p60-c9",
+            "CT-GT-1441-v2007-p81-c4"
+          ],
+          "latency_s": 7.285,
+          "llm_calls": 1,
+          "prompt_tokens": 1361,
+          "completion_tokens": 264,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": null,
+          "keyword_coverage": null,
+          "citation_precision": null,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "N01",
+          "category": "sin_respuesta",
+          "question": "¿Cuál es la política de la empresa sobre llevar mascotas a la oficina?",
+          "response": {
+            "answer": "No hay información suficiente en los fragmentos proporcionados para determinar la política de la empresa sobre llevar mascotas a la oficina.",
+            "sources": [],
+            "abstained": true,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "consulta_documental",
+            "trace_id": "439cf529ca38"
+          },
+          "context_ids": [
+            "CT-GT-1441-v2007-p21-c5",
+            "POL-RH-002-v2026-01-p2-c3",
+            "POL-RH-003-v2026-01-p1-c2",
+            "POL-RH-002-v2026-01-p1-c1",
+            "CT-GT-1441-v2007-p21-c4"
+          ],
+          "latency_s": 7.056,
+          "llm_calls": 1,
+          "prompt_tokens": 1359,
+          "completion_tokens": 91,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": null,
+          "keyword_coverage": null,
+          "citation_precision": null,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false
+        },
+        {
+          "id": "N02",
+          "category": "sin_respuesta",
+          "question": "¿Cuánto es exactamente el salario mínimo mensual vigente en 2026 para actividades no agrícolas?",
+          "response": {
+            "answer": "No se dispone de información sobre el monto exacto del salario mínimo mensual vigente en 2026 para actividades no agrícolas en los fragmentos proporcionados.",
+            "sources": [],
+            "abstained": true,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "consulta_documental",
+            "trace_id": "640b2b924496"
+          },
+          "context_ids": [
+            "CT-GT-1441-v2007-p61-c6",
+            "CT-GT-1441-v2007-p79-c1",
+            "CT-GT-1441-v2007-p61-c5",
+            "CT-GT-1441-v2007-p62-c1",
+            "CT-GT-1441-v2007-p50-c2"
+          ],
+          "latency_s": 9.944,
+          "llm_calls": 1,
+          "prompt_tokens": 1836,
+          "completion_tokens": 75,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": null,
+          "keyword_coverage": null,
+          "citation_precision": null,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false
+        },
+        {
+          "id": "V01",
+          "category": "version",
+          "question": "Según la política vigente, ¿con cuánta anticipación se deben solicitar las vacaciones?",
+          "response": {
+            "answer": "Las vacaciones deben solicitarse con al menos diez días hábiles de anticipación.",
+            "sources": [
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-002-v2026-01-p1-c3",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "consulta_documental",
+            "trace_id": "b3abd4c0486a"
+          },
+          "context_ids": [
+            "POL-RH-002-v2026-01-p1-c3",
+            "POL-RH-002-v2026-01-p1-c2",
+            "CT-GT-1441-v2007-p38-c8",
+            "CT-GT-1441-v2007-p38-c4",
+            "CT-GT-1441-v2007-p38-c6"
+          ],
+          "latency_s": 6.701,
+          "llm_calls": 1,
+          "prompt_tokens": 1187,
+          "completion_tokens": 62,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.4,
+            "noise": 0.6,
+            "redundancy": 0.6
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "V02",
+          "category": "version",
+          "question": "¿Qué cambió en la licencia de paternidad entre la política de 2025 y la de 2026?",
+          "response": {
+            "answer": "En la versión 2025 la licencia de paternidad era de dos días; en la versión 2026 se amplió a cinco días hábiles, ofreciendo un beneficio superior al mínimo legal.",
+            "sources": [
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2025.md",
+                "page": 2,
+                "chunk_id": "POL-RH-002-v2025-01-p2-c1",
+                "version": "2025-01"
+              },
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 2,
+                "chunk_id": "POL-RH-002-v2026-01-p2-c1",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "consulta_documental",
+            "trace_id": "a309f6875e2c"
+          },
+          "context_ids": [
+            "POL-RH-002-v2026-01-p1-c1",
+            "POL-RH-002-v2025-01-p1-c1",
+            "POL-RH-002-v2025-01-p2-c1",
+            "POL-RH-002-v2026-01-p2-c1",
+            "POL-RH-002-v2025-01-p2-c2"
+          ],
+          "latency_s": 5.429,
+          "llm_calls": 1,
+          "prompt_tokens": 1128,
+          "completion_tokens": 102,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 0.0,
+            "recall@3": 0.5,
+            "mrr": 0.3333333333333333,
+            "precision@5": 0.6,
+            "noise": 0.4,
+            "redundancy": 0.19999999999999996
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "T01",
+          "category": "herramienta_nominal",
+          "question": "¿Cuántos días de vacaciones me quedan?",
+          "response": {
+            "answer": "Según el sistema de nómina, tienes 12 días de vacaciones disponibles (período 2024-2025: 0 disponibles de 15; período 2025-2026: 12 disponibles de 16).",
+            "sources": [],
+            "abstained": false,
+            "tool_used": "consultar_saldo_vacaciones",
+            "needs_human_review": false,
+            "intent": "saldo_vacaciones",
+            "trace_id": "d64cf7b8ee72"
+          },
+          "context_ids": [],
+          "latency_s": 0.003,
+          "llm_calls": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "events": [
+            "intents:saldo_vacaciones",
+            "tool:consultar_saldo_vacaciones:ok"
+          ],
+          "guard_issues": [],
+          "retrieval": null,
+          "keyword_coverage": 1.0,
+          "citation_precision": null,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false
+        },
+        {
+          "id": "T02",
+          "category": "herramienta_nominal",
+          "question": "¿Cuánto me tocaría de Bono 14 con un salario de Q6,000 si entré el 2026-01-01?",
+          "response": {
+            "answer": "Cálculo referencial de Bono 14: Q2,350.68 (143 días computados). Base: Decreto 42-92 (POL-RH-004): un salario por año, período 1 jul - 30 jun. Cálculo referencial; el monto definitivo lo confirma Recursos Humanos.",
+            "sources": [
+              {
+                "source": "POL-RH-004_beneficios_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-004-v2026-01-p1-c2",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": "calcular_prestaciones",
+            "needs_human_review": false,
+            "intent": "calculo_prestaciones",
+            "trace_id": "261f62f0add4"
+          },
+          "context_ids": [],
+          "latency_s": 0.004,
+          "llm_calls": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "events": [
+            "intents:calculo_prestaciones",
+            "tool:calcular_prestaciones:ok"
+          ],
+          "guard_issues": [],
+          "retrieval": null,
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 0.85,
+          "relevance": 0.9
+        },
+        {
+          "id": "T03",
+          "category": "herramienta_seleccion",
+          "question": "¿Cómo se calcula el aguinaldo según la política de la empresa?",
+          "response": {
+            "answer": "El aguinaldo se determina con la fórmula de la calculadora oficial de prestaciones del sistema de nómina; el asistente virtual brinda un cálculo referencial y Recursos Humanos confirma el monto definitivo. Según la política, equivale a un salario ordinario mensual por cada año laborado o la parte proporcional, de acuerdo con el Decreto 76‑78.",
+            "sources": [
+              {
+                "source": "POL-RH-004_beneficios_v2026.md",
+                "page": 2,
+                "chunk_id": "POL-RH-004-v2026-01-p2-c2",
+                "version": "2026-01"
+              },
+              {
+                "source": "POL-RH-004_beneficios_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-004-v2026-01-p1-c2",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": null,
+            "needs_human_review": false,
+            "intent": "consulta_documental",
+            "trace_id": "10cdaf046eb6"
+          },
+          "context_ids": [
+            "POL-RH-004-v2026-01-p2-c2",
+            "POL-RH-004-v2026-01-p1-c2",
+            "CT-GT-1441-v2007-p38-c8",
+            "POL-RH-002-v2026-01-p2-c2",
+            "POL-RH-002-v2026-01-p2-c3"
+          ],
+          "latency_s": 1.951,
+          "llm_calls": 1,
+          "prompt_tokens": 1232,
+          "completion_tokens": 148,
+          "events": [
+            "intents:consulta_documental",
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 0.0,
+            "recall@3": 1.0,
+            "mrr": 0.5,
+            "precision@5": 0.2,
+            "noise": 0.8,
+            "redundancy": 0.19999999999999996
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 0.5,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 1.0,
+          "relevance": 1.0
+        },
+        {
+          "id": "T04",
+          "category": "herramienta_rango",
+          "question": "Calcula mi indemnización con un salario de Q500,000 desde 2020-01-01 hasta 2026-11-01",
+          "response": {
+            "answer": "No fue posible completar la operación (calcular_prestaciones): Parámetro fuera de rango o inválido (salario_mensual): Value error, salario fuera de rango permitido (Q1,000 - Q100,000).",
+            "sources": [],
+            "abstained": false,
+            "tool_used": "calcular_prestaciones",
+            "needs_human_review": true,
+            "intent": "calculo_prestaciones",
+            "trace_id": "310ff581599e"
+          },
+          "context_ids": [],
+          "latency_s": 0.007,
+          "llm_calls": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "events": [
+            "intents:calculo_prestaciones",
+            "tool:calcular_prestaciones:error"
+          ],
+          "guard_issues": [],
+          "retrieval": null,
+          "keyword_coverage": 1.0,
+          "citation_precision": null,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false
+        },
+        {
+          "id": "T05",
+          "category": "herramienta_confirmacion",
+          "question": "Quiero solicitar 5 días de vacaciones a partir del 2026-12-21",
+          "response": {
+            "answer": "Se preparó una solicitud de 5 días de vacaciones a partir del 2026-12-21 (saldo disponible: 12 días). Esta es una acción que requiere tu confirmación explícita: confirma para registrarla. Luego deberá aprobarla tu jefe inmediato.",
+            "sources": [
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-002-v2026-01-p1-c3",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": "registrar_solicitud_vacaciones",
+            "needs_human_review": true,
+            "intent": "solicitud_vacaciones",
+            "trace_id": "9ff704efb262"
+          },
+          "context_ids": [],
+          "latency_s": 0.003,
+          "llm_calls": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "events": [
+            "intents:solicitud_vacaciones",
+            "tool:registrar_solicitud_vacaciones:ok"
+          ],
+          "guard_issues": [],
+          "retrieval": null,
+          "keyword_coverage": 1.0,
+          "citation_precision": null,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 0.85,
+          "relevance": 0.9
+        },
+        {
+          "id": "T06",
+          "category": "herramienta_indisponible",
+          "question": "¿Cuántos días de vacaciones me quedan disponibles?",
+          "response": {
+            "answer": "No fue posible completar la operación (consultar_saldo_vacaciones): Servicio de nómina no disponible.",
+            "sources": [],
+            "abstained": false,
+            "tool_used": "consultar_saldo_vacaciones",
+            "needs_human_review": true,
+            "intent": "saldo_vacaciones",
+            "trace_id": "5d19f9e4a506"
+          },
+          "context_ids": [],
+          "latency_s": 0.0,
+          "llm_calls": 0,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "events": [
+            "intents:saldo_vacaciones",
+            "tool:consultar_saldo_vacaciones:error"
+          ],
+          "guard_issues": [],
+          "retrieval": null,
+          "keyword_coverage": 1.0,
+          "citation_precision": null,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false
+        },
+        {
+          "id": "T07",
+          "category": "herramienta_compuesta",
+          "question": "¿Cuántos días de vacaciones me quedan y además con cuánta anticipación debo pedirlas?",
+          "response": {
+            "answer": "Según el sistema de nómina, tienes 12 días de vacaciones disponibles (período 2024-2025: 0 disponibles de 15; período 2025-2026: 12 disponibles de 16). Las vacaciones deben solicitarse con al menos diez días hábiles de anticipación mediante el formulario electrónico RH‑F‑07 o el asistente virtual, y requieren la aprobación del jefe inmediato.",
+            "sources": [
+              {
+                "source": "POL-RH-002_vacaciones_permisos_v2026.md",
+                "page": 1,
+                "chunk_id": "POL-RH-002-v2026-01-p1-c3",
+                "version": "2026-01"
+              }
+            ],
+            "abstained": false,
+            "tool_used": "consultar_saldo_vacaciones",
+            "needs_human_review": false,
+            "intent": "saldo_vacaciones",
+            "trace_id": "11ac04dc741f"
+          },
+          "context_ids": [
+            "POL-RH-002-v2026-01-p1-c3",
+            "POL-RH-002-v2026-01-p1-c2",
+            "CT-GT-1441-v2007-p38-c6",
+            "CT-GT-1441-v2007-p38-c5",
+            "CT-GT-1441-v2007-p38-c4"
+          ],
+          "latency_s": 2.166,
+          "llm_calls": 1,
+          "prompt_tokens": 1306,
+          "completion_tokens": 217,
+          "events": [
+            "intents:saldo_vacaciones,consulta_documental",
+            "tool:consultar_saldo_vacaciones:ok",
+            "generacion:llm"
+          ],
+          "guard_issues": [],
+          "retrieval": {
+            "recall@5": 1.0,
+            "recall@1": 1.0,
+            "recall@3": 1.0,
+            "mrr": 1.0,
+            "precision@5": 0.4,
+            "noise": 0.6,
+            "redundancy": 0.6
+          },
+          "keyword_coverage": 1.0,
+          "citation_precision": 1.0,
+          "abstention_correct": true,
+          "behavior_pass": true,
+          "db_write": false,
+          "faithfulness": 0.5,
+          "relevance": 0.5
+        }
+      ]
+    }
+  }
+}
