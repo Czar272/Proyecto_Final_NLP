@@ -16,7 +16,8 @@ Flujo de consulta
 Usuario (sesión: user_id + rol)
   -> [Guardrail de entrada] esquema Pydantic, longitud, normalización Unicode, detector de inyección, PII
   -> [Router de intención] reglas auditables + extracción determinista de parámetros
-       ├─ consulta_documental ─> Recuperación híbrida (BM25 + E5, RRF) -> filtros rol/versión/cuarentena
+       ├─ consulta_documental ─> Expansión de consulta (glosario) -> Recuperación híbrida (BM25 + E5, RRF)
+       │                           -> filtros rol/versión/cuarentena
        │                           -> reranking cross-encoder -> compuerta de permisos -> umbral de abstención
        ├─ saldo_vacaciones ────> consultar_saldo_vacaciones (SQLite, permiso por propietario)
        ├─ calculo_prestaciones > calcular_prestaciones (motor determinista con validación de rangos)
@@ -128,4 +129,4 @@ tests/          pruebas unitarias
 - Greshake et al. (2023). *Not what you've signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection*.
 - OWASP (2025). *Top 10 for LLM Applications*.
 - Es et al. (2023). *RAGAS: Automated Evaluation of Retrieval Augmented Generation*.
-- Librerías: sentence-transformers, rank_bm25, pypdf, pydantic, streamlit, requests. LLM: Llama 3.3 70B vía Groq API.
+- Librerías: sentence-transformers, rank_bm25, pypdf, pydantic, streamlit, requests. LLM generador: openai/gpt-oss-120b vía Groq API; juez: qwen/qwen3.8-27b.
