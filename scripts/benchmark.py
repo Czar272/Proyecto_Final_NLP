@@ -89,7 +89,7 @@ def judge(client: LLMClient, question: str, answer: str, evidence: str) -> dict:
 
 def run_system(name: str, cases: list[dict], id_meta: dict, use_judge: bool, pause: float) -> dict:
     llm = LLMClient()
-    judge_client = LLMClient(model=os.getenv("JUDGE_MODEL", "llama-3.1-8b-instant")) if use_judge else None
+    judge_client = LLMClient(model=os.getenv("JUDGE_MODEL", "qwen/qwen3.8-27b")) if use_judge else None
     assistant = HRAssistant(llm=llm, audit=True)
     index = get_index()
     rows = []
@@ -214,6 +214,10 @@ def main() -> None:
 
     cases = load_cases(Path(args.cases))
     index = get_index()
+    # Precalentamiento: carga de modelos fuera de la medición de latencia
+    from hrrag.retrieval.models import get_embedder, get_reranker
+    get_embedder(), get_reranker()
+    retrieve("precalentamiento", Role.EMPLEADO)
     id_meta = {c.chunk_id: {"source": c.source, "page": c.page} for c in index.chunks}
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     report = {"timestamp": ts, "llm_model": settings.groq_model, "embedding_model": settings.embedding_model,

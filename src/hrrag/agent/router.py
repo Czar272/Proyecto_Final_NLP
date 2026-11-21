@@ -34,7 +34,12 @@ REQUEST_TRIGGER = re.compile(
     re.IGNORECASE)
 LEGAL_ADVICE_RE = re.compile(r"(demand\w+|abogad\w+|juicio|denunciar\s+a\s+la\s+empresa|despedir\s+a\s+\w+|"
                              r"me\s+pueden\s+despedir|me\s+van\s+a\s+despedir)", re.IGNORECASE)
-OTHER_EMP_RE = re.compile(r"\bEMP-\d{3}\b", re.IGNORECASE)
+TOPIC_RE = re.compile(
+    r"(vacaci|teletrabaj|aguinald|bono|indemniz|permiso|licencia|matrimonio|paternidad|maternidad|fallec|salari|"
+    r"regalo|horario|jornada|tard|art[ií]culo|formulario|denuncia|acoso|[ée]tica|seguro|pr[ée]stamo|capacitaci|"
+    r"despido|contrato|prueba|incapacidad|extra|disciplin|conectividad|beneficio|prestaci|reglamento|pol[ií]tica)",
+    re.IGNORECASE)
+OTHER_EMP_RE =re.compile(r"\bEMP-\d{3}\b", re.IGNORECASE)
 MONEY_RE = re.compile(r"Q\s?([\d]{1,3}(?:[,\s]?\d{3})*(?:\.\d{1,2})?)", re.IGNORECASE)
 ISO_DATE_RE = re.compile(r"\b(\d{4})-(\d{2})-(\d{2})\b")
 DMY_DATE_RE = re.compile(r"\b(\d{1,2})/(\d{1,2})/(\d{4})\b")
@@ -47,6 +52,7 @@ class RoutePlan:
     tool_calls: list[tuple[str, dict]] = field(default_factory=list)
     use_rag: bool = True
     legal_advice: bool = False
+    possibly_ambiguous: bool = False
     notes: list[str] = field(default_factory=list)
 
     @property
@@ -87,6 +93,12 @@ def route(question: str, user: UserContext, db_lookup=None) -> RoutePlan:
     if LEGAL_ADVICE_RE.search(q):
         plan.legal_advice = True
         plan.notes.append("Consulta con componente de asesoría legal: requiere revisión humana")
+
+    # Detección de ambigüedad: pregunta breve sin ningún tema del dominio explícito
+    content_words = [w for w in re.findall(r"\w+", q.lower()) if len(w) > 2]
+    if len(content_words) <= 6 and not TOPIC_RE.search(q):
+        plan.possibly_ambiguous = True
+        plan.notes.append("Pregunta breve sin tema explícito: posible ambigüedad")
 
     # 1) Acción crítica: registrar solicitud de vacaciones
     if REQUEST_TRIGGER.search(q) and not is_info_question:

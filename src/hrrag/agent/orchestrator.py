@@ -201,7 +201,8 @@ class HRAssistant:
 
         # 6. Generación estructurada
         context = [] if low_evidence else st.retrieved
-        st.generation = generate(req.question, context, self.llm, tool_note=tool_text)
+        st.generation = generate(req.question, context, self.llm, tool_note=tool_text,
+                                 ambiguous=st.plan.possibly_ambiguous)
         gen = st.generation
         if gen.invalid_citations:
             st.guard_issues.append("citas_invalidas")
@@ -219,12 +220,17 @@ class HRAssistant:
                 sources.append(ref)
         if gout.force_abstain:
             answer, abstained, sources = SAFE_FALLBACK, True, []
-        if abstained and not gout.force_abstain:
+        elif tool_text:
+            # La parte transaccional se responde con el dato exacto de la herramienta (no reformulado por el LLM)
+            answer = tool_text + " " + answer
+            if gen.abstained:
+                sources = _tool_sources(st.tool_results)
+            abstained = abstained and not any(t.ok for t in st.tool_results)
+        elif abstained:
             sources = []
-            if tool_text:
-                answer = tool_text + " " + answer
         needs_review = needs_review or gen.needs_human_review or gout.needs_review or gen.mode != "llm"
         needs_review = needs_review or bool(gen.invalid_citations) or gout.force_abstain
+        needs_review = needs_review or (st.plan.possibly_ambiguous and not abstained)
         try:
             resp = AssistantResponse(answer=answer, sources=sources, abstained=abstained, tool_used=tool_used,
                                      needs_human_review=needs_review, intent=st.plan.primary, trace_id=trace_id)
