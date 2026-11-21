@@ -31,11 +31,12 @@ from seed_db import seed  # noqa: E402
 
 ABLATIONS = {
     "bm25_sin_filtros (línea base)": RetrievalConfig(mode="bm25", rerank=False, access_filter=False,
-                                                     version_filter=False, exclude_quarantined=False),
-    "bm25 + filtros": RetrievalConfig(mode="bm25", rerank=False),
-    "denso_e5 + filtros": RetrievalConfig(mode="dense", rerank=False),
-    "híbrido_rrf + filtros": RetrievalConfig(mode="hybrid", rerank=False),
-    "híbrido_rrf + filtros + rerank (mejorado)": RetrievalConfig(mode="hybrid", rerank=True),
+                                                     version_filter=False, exclude_quarantined=False, expand=False),
+    "bm25 + filtros": RetrievalConfig(mode="bm25", rerank=False, expand=False),
+    "denso_e5 + filtros": RetrievalConfig(mode="dense", rerank=False, expand=False),
+    "híbrido_rrf + filtros": RetrievalConfig(mode="hybrid", rerank=False, expand=False),
+    "híbrido_rrf + filtros + rerank": RetrievalConfig(mode="hybrid", rerank=True, expand=False),
+    "híbrido_rrf + filtros + rerank + expansión (mejorado)": RetrievalConfig(mode="hybrid", rerank=True),
 }
 
 JUDGE_PROMPT = """Eres un evaluador estricto. Dada una PREGUNTA, una RESPUESTA y la EVIDENCIA citada, devuelve JSON:

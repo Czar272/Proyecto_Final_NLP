@@ -1,0 +1,63 @@
+Ablación de recuperación...
+  bm25_sin_filtros (línea base): recall@5=0.8684 mrr=0.7237
+  bm25 + filtros: recall@5=0.8684 mrr=0.8333
+  denso_e5 + filtros: recall@5=0.8158 mrr=0.7281
+  híbrido_rrf + filtros: recall@5=0.8158 mrr=0.7237
+  híbrido_rrf + filtros + rerank (mejorado): recall@5=0.9211 mrr=0.886
+Sistema: baseline
+  [baseline] D01 OK  abst=False tool=None rev=False 0.588s
+  [baseline] D02 OK  abst=False tool=None rev=False 0.494s
+  [baseline] D03 OK  abst=False tool=None rev=False 0.478s
+  [baseline] D04 OK  abst=False tool=None rev=False 0.552s
+  [baseline] D05 OK  abst=False tool=None rev=False 0.892s
+  [baseline] P01 FAIL abst=True tool=None rev=False 0.597s
+  [baseline] P02 FAIL abst=False tool=None rev=False 0.8s
+  [baseline] P03 OK  abst=False tool=None rev=False 0.83s
+  [baseline] L01 OK  abst=False tool=None rev=False 0.69s
+  [baseline] L02 OK  abst=False tool=None rev=False 0.586s
+  [baseline] L03 FAIL abst=False tool=None rev=False 0.454s
+  [baseline] M01 OK  abst=False tool=None rev=False 0.75s
+  [baseline] M02 OK  abst=False tool=None rev=False 0.73s
+  [baseline] M03 OK  abst=False tool=None rev=False 5.122s
+  [baseline] A01 FAIL abst=False tool=None rev=False 7.075s
+  [baseline] A02 FAIL abst=False tool=None rev=False 5.946s
+  [baseline] N01 FAIL abst=False tool=None rev=False 3.718s
+  [baseline] N02 OK  abst=True tool=None rev=False 10.021s
+  [baseline] V01 OK  abst=False tool=None rev=False 3.02s
+  [baseline] V02 OK  abst=False tool=None rev=False 7.154s
+  [baseline] T01 FAIL abst=False tool=None rev=True 0.611s
+  [baseline] T02 FAIL abst=False tool=None rev=False 7.309s
+  [baseline] T03 OK  abst=False tool=None rev=False 2.055s
+  [baseline] T04 FAIL abst=False tool=None rev=False 5.077s
+  [baseline] T05 FAIL abst=False tool=None rev=False 6.901s
+  [baseline] T06 FAIL abst=True tool=None rev=False 2.711s
+  [baseline] T07 FAIL abst=False tool=None rev=False 4.126s
+Sistema: mejorado
+  [mejorado] D01 OK  abst=False tool=None rev=True 10.173s
+  [mejorado] D02 OK  abst=False tool=None rev=False 2.331s
+  [mejorado] D03 OK  abst=False tool=None rev=False 1.764s
+  [mejorado] D04 OK  abst=False tool=None rev=False 5.345s
+  [mejorado] D05 OK  abst=False tool=None rev=False 8.86s
+  [mejorado] P01 FAIL abst=True tool=None rev=False 6.486s
+  [mejorado] P02 OK  abst=False tool=None rev=False 9.279s
+  [mejorado] P03 OK  abst=False tool=None rev=False 10.959s
+  [mejorado] L01 OK  abst=False tool=None rev=False 5.36s
+  [mejorado] L02 OK  abst=False tool=None rev=False 6.36s
+  [mejorado] L03 FAIL abst=False tool=None rev=False 6.514s
+  [mejorado] M01 OK  abst=False tool=None rev=True 5.302s
+  [mejorado] M02 OK  abst=False tool=None rev=False 6.877s
+  [mejorado] M03 OK  abst=False tool=None rev=True 9.344s
+  [mejorado] A01 OK  abst=False tool=None rev=True 5.447s
+  [mejorado] A02 OK  abst=False tool=None rev=True 7.219s
+  [mejorado] N01 OK  abst=True tool=None rev=False 5.849s
+  [mejorado] N02 OK  abst=True tool=None rev=False 11.465s
+  [mejorado] V01 FAIL abst=False tool=registrar_solicitud_vacaciones rev=True 0.103s
+  [mejorado] V02 OK  abst=False tool=None rev=False 1.944s
+  [mejorado] T01 OK  abst=False tool=consultar_saldo_vacaciones rev=False 0.011s
+  [mejorado] T02 OK  abst=False tool=calcular_prestaciones rev=False 0.007s
+  [mejorado] T03 OK  abst=False tool=None rev=False 1.764s
+  [mejorado] T04 OK  abst=False tool=calcular_prestaciones rev=True 0.005s
+  [mejorado] T05 OK  abst=False tool=registrar_solicitud_vacaciones rev=True 0.003s
+  [mejorado] T06 OK  abst=False tool=consultar_saldo_vacaciones rev=True 0.001s
+  [mejorado] T07 OK  abst=False tool=consultar_saldo_vacaciones rev=False 1.837s
+Resultados en C:\Users\MSI\Desktop\info\Escritorio\UVG\10mo Semestre\Procesamiento de Lenguaje Natural\Proyecto FInal\Proyecto_Final_NLP\results

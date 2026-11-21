@@ -1,0 +1,17 @@
+{
+  "descripcion": "Iteración 1 del benchmark (20/11/2026 19:31) antes de la expansión de consulta y de la corrección del router. Resumen transcrito de la salida del script.",
+  "retrieval_ablation": {
+    "bm25_sin_filtros (línea base)": {"recall@5": 0.8684, "mrr": 0.7237},
+    "bm25 + filtros": {"recall@5": 0.8684, "mrr": 0.8333},
+    "denso_e5 + filtros": {"recall@5": 0.8158, "mrr": 0.7281},
+    "híbrido_rrf + filtros": {"recall@5": 0.8158, "mrr": 0.7237},
+    "híbrido_rrf + filtros + rerank": {"recall@5": 0.9211, "mrr": 0.886}
+  },
+  "baseline": {"behavior_accuracy": 0.5556, "recall@5": 0.8684, "mrr": 0.7237, "keyword_coverage": 0.6739, "citation_precision": 0.8824, "abstention_accuracy_unanswerable": 0.5, "false_abstention_rate": 0.0588, "faithfulness_judge": 0.9227, "relevance_judge": 0.95, "latency_mean_s": 2.937, "latency_p95_s": 7.263, "llm_calls": 27},
+  "mejorado": {"behavior_accuracy": 0.8889, "recall@5": 0.9118, "mrr": 0.8725, "keyword_coverage": 0.8696, "citation_precision": 0.9412, "abstention_accuracy_unanswerable": 1.0, "false_abstention_rate": 0.0588, "faithfulness_judge": 0.96, "relevance_judge": 0.955, "latency_mean_s": 4.837, "latency_p95_s": 10.723, "llm_calls": 21},
+  "fallas_mejorado": {
+    "P01": "Paráfrasis coloquial ('si me caso', 'días libres pagados'): el fragmento de permisos con goce no entra al top-5; el LLM se abstiene (falsa abstención).",
+    "L03": "Respuesta correcta pero la palabra clave esperada 'interés' no aparece: falso negativo de la métrica; se corrigió la palabra clave a 'relación'.",
+    "V01": "Error del router: '¿con cuánta anticipación se deben solicitar las vacaciones?' activó registrar_solicitud_vacaciones por el verbo 'solicitar' sin parámetros."
+  }
+}
