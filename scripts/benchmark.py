@@ -136,6 +136,10 @@ def run_system(name: str, cases: list[dict], id_meta: dict, use_judge: bool, pau
               f"rev={r['needs_human_review']} {trace['latency_s']}s")
         if pause:
             time.sleep(pause)
+    return {"summary": summarize(rows, cases, llm.usage.errors), "rows": rows}
+
+
+def summarize(rows: list[dict], cases: list[dict], llm_errors: int) -> dict:
     answerable_retr = [x["retrieval"] for x in rows if x["retrieval"]]
     summary = {
         "n_cases": len(rows),
@@ -156,7 +160,13 @@ def run_system(name: str, cases: list[dict], id_meta: dict, use_judge: bool, pau
         "llm_calls": sum(x["llm_calls"] for x in rows),
         "prompt_tokens": sum(x["prompt_tokens"] for x in rows),
         "completion_tokens": sum(x["completion_tokens"] for x in rows),
-        "llm_errors_retries": llm.usage.errors,
+        "refusal_rate_unanswerable": M.mean(
+            [float(x["response"]["abstained"] or bool(M.DENY_RE.search(x["response"]["answer"])))
+             for x, c in zip(rows, cases) if not c["answerable"]]),
+        "confidential_citations_to_non_rrhh": sum(
+            1 for x, c in zip(rows, cases) if c["role"] != "rrhh"
+            and any("CONFIDENCIAL" in s["source"] for s in x["response"]["sources"])),
+        "llm_errors_retries": llm_errors,
         "fallback_responses": sum(1 for x in rows if any("extractive" in e or "fallback" in e for e in x["events"])),
     }
     summary["est_cost_usd"] = round((summary["prompt_tokens"] * settings.price_in_per_m +
@@ -166,7 +176,22 @@ def run_system(name: str, cases: list[dict], id_meta: dict, use_judge: bool, pau
     for x in rows:
         by_cat.setdefault(x["category"], []).append(float(x["behavior_pass"]))
     summary["behavior_by_category"] = {k: M.mean(v) for k, v in by_cat.items()}
-    return {"summary": summary, "rows": rows}
+    return summary
+
+
+def rescore(path: Path, cases: list[dict]) -> dict:
+    """Recalcula métricas de respuesta sobre salidas guardadas (sin nuevas llamadas al LLM)."""
+    report = json.loads(path.read_text(encoding="utf-8"))
+    by_id = {c["id"]: c for c in cases}
+    for name, sysrep in report.get("systems", {}).items():
+        ordered = [by_id[r["id"]] for r in sysrep["rows"]]
+        for r, c in zip(sysrep["rows"], ordered):
+            resp = r["response"]
+            r["keyword_coverage"] = M.keyword_coverage(resp["answer"], c.get("expected_keywords", []))
+            r["citation_precision"] = M.citation_precision(resp["sources"], c)
+            r["behavior_pass"] = M.behavior_pass(c, resp, {"db_write": r.get("db_write", False)})
+        sysrep["summary"] = summarize(sysrep["rows"], ordered, sysrep["summary"].get("llm_errors_retries", 0))
+    return report
 
 
 def write_markdown(report: dict, path: Path) -> None:
@@ -208,12 +233,21 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--retrieval-only", action="store_true")
     ap.add_argument("--judge", action="store_true")
+    ap.add_argument("--rescore", action="store_true",
+                    help="Recalcula métricas sobre results/benchmark_latest.json sin volver a consultar el LLM")
     ap.add_argument("--pause", type=float, default=float(os.getenv("BENCH_PAUSE", "2")),
                     help="Pausa entre casos para respetar límites de tasa de la API")
     ap.add_argument("--cases", default=str(ROOT / "data" / "eval" / "testset.jsonl"))
     args = ap.parse_args()
 
     cases = load_cases(Path(args.cases))
+    if args.rescore:
+        report = rescore(settings.results_dir / "benchmark_latest.json", cases)
+        (settings.results_dir / "benchmark_latest.json").write_text(
+            json.dumps(report, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
+        write_markdown(report, settings.results_dir / "benchmark_latest.md")
+        print("Métricas recalculadas")
+        return
     index = get_index()
     # Precalentamiento: carga de modelos fuera de la medición de latencia
     from hrrag.retrieval.models import get_embedder, get_reranker

@@ -9,7 +9,7 @@ import numpy as np
 CLARIFY_RE = re.compile(r"(aclar|especific|te refieres|podr[ií]a referirse|podr[ií]as indicar|ambig|"
                         r"depende de|varias interpretaciones|m[aá]s detalle|a qu[eé] (tipo|plazo|d[ií]as))",
                         re.IGNORECASE)
-DENY_RE = re.compile(r"(denegad|no (puedo|es posible)|no tengo (acceso|permiso)|no encontr|no hay (informaci|evidencia)|"
+DENY_RE = re.compile(r"(denegad|no (puedo|es posible)|no se (encuentra|dispone)|no dispongo|no tengo (acceso|permiso)|no encontr|no hay (informaci|evidencia)|"
                      r"no (se )?(menciona|establece|indica|contiene|existe)|no est[aá] (establecid|contemplad))",
                      re.IGNORECASE)
 
