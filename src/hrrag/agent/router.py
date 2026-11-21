@@ -16,8 +16,8 @@ from .tools import reference_date
 QUESTION_START = re.compile(r"^\s*¿?\s*(c[oó]mo|con\s+cu[aá]nta|qu[eé]|cu[aá]l|cu[aá]les|d[oó]nde|por\s+qu[eé]|"
                             r"es\s+cierto|existe|hay)\b", re.IGNORECASE)
 SALDO_RE = re.compile(
-    r"(saldo|d[ií]as\s+(de\s+vacaciones\s+)?(me\s+)?(quedan|tengo|disponibles|pendientes)|"
-    r"cu[aá]ntos\s+d[ií]as\s+(de\s+vacaciones\s+)?(me\s+)?quedan|vacaciones\s+(me\s+)?quedan)",
+    r"(saldo|d[ií]as\s+(de\s+vacaciones\s+)?((me|le|te)\s+)?(quedan|tengo|tiene|disponibles|pendientes)|"
+    r"vacaciones\s+((me|le|te)\s+)?quedan)",
     re.IGNORECASE)
 CALC_TYPES = {
     "aguinaldo": r"aguinaldo",
@@ -109,7 +109,7 @@ def route(question: str, user: UserContext, db_lookup=None) -> RoutePlan:
 
     # 3) Cálculo de prestaciones
     calc_type = next((t for t, rx in CALC_TYPES.items() if re.search(rx, q, re.IGNORECASE)), None)
-    if calc_type and CALC_TRIGGER.search(q):
+    if calc_type and CALC_TRIGGER.search(q) and not is_info_question:
         params: dict = {"tipo": calc_type}
         salary = _money(q)
         dates = _dates(q)
