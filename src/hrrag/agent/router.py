@@ -101,7 +101,9 @@ def route(question: str, user: UserContext, db_lookup=None) -> RoutePlan:
         plan.notes.append("Pregunta breve sin tema explícito: posible ambigüedad")
 
     # 1) Acción crítica: registrar solicitud de vacaciones
-    if REQUEST_TRIGGER.search(q) and not is_info_question:
+    # Requiere intención declarativa y al menos un parámetro (fecha o días): evita que preguntas
+    # informativas que mencionan "solicitar vacaciones" disparen la acción crítica.
+    if REQUEST_TRIGGER.search(q) and not is_info_question and (_dates(q) or DAYS_RE.search(q)):
         dates = _dates(q)
         days = DAYS_RE.search(q)
         params = {"employee_id": target_id}
