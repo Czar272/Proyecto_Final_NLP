@@ -8,6 +8,7 @@ from typing import Literal
 import numpy as np
 
 from ..config import settings
+from ..ingest.chunker import embedding_text
 from ..schemas import Chunk, RetrievedChunk, Role
 from .index import CorpusIndex, get_index
 from .text import tokenize
@@ -123,7 +124,7 @@ def retrieve(question: str, role: Role, cfg: RetrievalConfig = IMPROVED,
     if cfg.rerank and ranked:
         from .models import get_reranker
 
-        pairs = [(question, index.chunks[i].text) for i, _ in ranked]
+        pairs = [(question, embedding_text(index.chunks[i])) for i, _ in ranked]
         scores = get_reranker().predict(pairs, batch_size=16)
         ranked = sorted(zip([i for i, _ in ranked], [float(s) for s in scores]), key=lambda x: -x[1])
         stage = "rerank"
