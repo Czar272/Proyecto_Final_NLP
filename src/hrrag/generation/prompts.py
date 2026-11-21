@@ -40,10 +40,22 @@ def format_context(chunks: list[RetrievedChunk]) -> tuple[str, dict[str, Retriev
     return "<contexto>\n" + "\n".join(blocks) + "\n</contexto>", mapping
 
 
-def build_messages(question: str, context: str, tool_note: str | None = None) -> list[dict]:
+AMBIGUITY_NOTE = ("La pregunta es breve y no especifica el tema. Si admite varias interpretaciones "
+                  "(por ejemplo, distintos tipos de días, plazos o beneficios), indícalo, resume brevemente "
+                  "las interpretaciones principales con sus citas, pide al colaborador que precise y "
+                  "establece needs_human_review en true.")
+
+
+def build_messages(question: str, context: str, tool_note: str | None = None,
+                   ambiguous: bool = False) -> list[dict]:
     user = f"{context}\n\n"
     if tool_note:
-        user += f"<resultado_herramienta>\n{tool_note}\n</resultado_herramienta>\n\n"
+        user += (f"<resultado_herramienta>\n{tool_note}\n</resultado_herramienta>\n"
+                 "El resultado de la herramienta proviene del sistema oficial de nómina y YA responde la parte "
+                 "transaccional de la pregunta (se mostrará al usuario por separado). Responde únicamente la "
+                 "parte documental restante usando los fragmentos, sin repetir el dato de la herramienta.\n\n")
+    if ambiguous:
+        user += f"<nota_router>{AMBIGUITY_NOTE}</nota_router>\n\n"
     user += f"Pregunta del colaborador: {question}\n\nDevuelve únicamente el objeto JSON."
     return [{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": user}]
 

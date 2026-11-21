@@ -45,13 +45,16 @@ class LLMClient:
         return self.provider == "groq" and bool(settings.groq_api_key)
 
     def chat(self, messages: list[dict], json_mode: bool = True, temperature: float = 0.0,
-             max_tokens: int = 700) -> str:
+             max_tokens: int = 1200) -> str:
         if not self.available:
             raise LLMUnavailable("Proveedor LLM no configurado (GROQ_API_KEY vacío o LLM_PROVIDER=extractive)")
         payload = {"model": self.model, "messages": messages, "temperature": temperature,
                    "max_tokens": max_tokens}
         if json_mode:
             payload["response_format"] = {"type": "json_object"}
+        if "gpt-oss" in self.model:
+            # Modelo de razonamiento: esfuerzo bajo para acotar latencia y tokens
+            payload["reasoning_effort"] = "low"
         headers = {"Authorization": f"Bearer {settings.groq_api_key}", "Content-Type": "application/json"}
         last_err = None
         for attempt in range(settings.llm_max_retries + 1):

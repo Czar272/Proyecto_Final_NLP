@@ -52,12 +52,12 @@ def extractive_answer(question: str, chunks: list[RetrievedChunk], reason: str) 
 
 
 def generate(question: str, chunks: list[RetrievedChunk], client: LLMClient, baseline: bool = False,
-             tool_note: str | None = None) -> GenerationResult:
+             tool_note: str | None = None, ambiguous: bool = False) -> GenerationResult:
     if not chunks and not tool_note:
         return GenerationResult(answer=NO_EVIDENCE_MSG, abstained=True, mode="rule")
     context, mapping = format_context(chunks)
     messages = (build_baseline_messages(question, context) if baseline
-                else build_messages(question, context, tool_note))
+                else build_messages(question, context, tool_note, ambiguous))
     try:
         raw = client.chat(messages)
         data = _parse_json(raw)
