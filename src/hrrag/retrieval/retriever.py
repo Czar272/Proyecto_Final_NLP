@@ -10,6 +10,7 @@ import numpy as np
 from ..config import settings
 from ..ingest.chunker import embedding_text
 from ..schemas import Chunk, RetrievedChunk, Role
+from .expansion import expand_query
 from .index import CorpusIndex, get_index
 from .text import tokenize
 
@@ -25,13 +26,14 @@ class RetrievalConfig:
     access_filter: bool = True
     version_filter: bool = True
     exclude_quarantined: bool = True
+    expand: bool = True
     top_k: int = settings.top_k_context
     candidates: int = settings.top_k_candidates
 
 
-# Línea base: búsqueda léxica pura sin filtros de metadatos ni reranking
+# Línea base: búsqueda léxica pura sin filtros de metadatos, expansión ni reranking
 BASELINE = RetrievalConfig(mode="bm25", rerank=False, access_filter=False, version_filter=False,
-                           exclude_quarantined=False)
+                           exclude_quarantined=False, expand=False)
 IMPROVED = RetrievalConfig()
 
 
@@ -101,22 +103,24 @@ def retrieve(question: str, role: Role, cfg: RetrievalConfig = IMPROVED,
              index: CorpusIndex | None = None) -> tuple[list[RetrievedChunk], RetrievalTrace]:
     index = index or get_index()
     trace = RetrievalTrace()
+    query = expand_query(question) if cfg.expand else question
     mask = allowed_mask(index, role, cfg, question)
     if cfg.access_filter:
         trace.denied_by_role = int(sum(role.value not in c.allowed_roles for c in index.chunks))
     trace.filters = {"role": role.value, "access_filter": cfg.access_filter,
                      "version_filter": cfg.version_filter, "include_historical": wants_history(question),
+                     "expanded_query": query if query != question else None,
                      "exclude_quarantined": cfg.exclude_quarantined, "eligible_chunks": int(mask.sum())}
     if not mask.any():
         return [], trace
 
     if cfg.mode == "bm25":
-        ranked, stage = _bm25(index, question, mask, cfg.candidates), "bm25"
+        ranked, stage = _bm25(index, query, mask, cfg.candidates), "bm25"
     elif cfg.mode == "dense":
-        ranked, stage = _dense(index, question, mask, cfg.candidates), "dense"
+        ranked, stage = _dense(index, query, mask, cfg.candidates), "dense"
     else:
-        ranked = _rrf([_bm25(index, question, mask, cfg.candidates),
-                       _dense(index, question, mask, cfg.candidates)], settings.rrf_k)
+        ranked = _rrf([_bm25(index, query, mask, cfg.candidates),
+                       _dense(index, query, mask, cfg.candidates)], settings.rrf_k)
         stage = "hybrid"
     ranked = _dedupe(ranked, index)[: cfg.candidates]
     trace.candidates = [(index.chunks[i].chunk_id, round(s, 4)) for i, s in ranked]
@@ -124,7 +128,7 @@ def retrieve(question: str, role: Role, cfg: RetrievalConfig = IMPROVED,
     if cfg.rerank and ranked:
         from .models import get_reranker
 
-        pairs = [(question, embedding_text(index.chunks[i])) for i, _ in ranked]
+        pairs = [(query, embedding_text(index.chunks[i])) for i, _ in ranked]
         scores = get_reranker().predict(pairs, batch_size=16)
         ranked = sorted(zip([i for i, _ in ranked], [float(s) for s in scores]), key=lambda x: -x[1])
         stage = "rerank"
