@@ -19,7 +19,7 @@ validación de salidas y auditoría con PII enmascarada.
 | Código fuente | `src/`, `scripts/`, `app/`, `tests/` |
 | Dataset de evaluación | `data/eval/testset.jsonl`, `data/eval/security_cases.jsonl` |
 | Resultados comparativos | `results/benchmark_latest.{md,json}`, `results/security_latest.{md,json}`, `results/iteracion1/` |
-| Video de demostración | `docs/` |
+
 
 ## Arquitectura
 
