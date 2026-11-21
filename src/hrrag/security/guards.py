@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
+from functools import lru_cache
 
 from ..config import settings
 from ..generation.prompts import CANARY, SYSTEM_PROMPT
@@ -42,15 +43,28 @@ class OutputVerdict:
     needs_review: bool = False
 
 
-def _restricted_leak(answer: str, restricted: list[Chunk]) -> bool:
-    """Detecta si la respuesta reproduce contenido de documentos restringidos (n-gramas de 6 palabras)."""
-    words = re.findall(r"\w+", answer.lower())
-    grams = {" ".join(words[i:i + 6]) for i in range(len(words) - 5)}
-    for c in restricted:
-        cw = re.findall(r"\w+", c.text.lower())
-        if any(" ".join(cw[i:i + 6]) in grams for i in range(len(cw) - 5)):
-            return True
-    return False
+def _ngrams(text: str, n: int = 6) -> set[str]:
+    w = re.findall(r"\w+", text.lower())
+    return {" ".join(w[i:i + n]) for i in range(len(w) - n + 1)}
+
+
+@lru_cache(maxsize=8)
+def _exclusive_restricted_grams(role_value: str) -> frozenset[str]:
+    """N-gramas que solo aparecen en documentos restringidos para el rol (se excluye texto común, p. ej.
+    encabezados institucionales compartidos con documentos públicos)."""
+    from ..retrieval.index import get_index
+
+    allowed, restricted = set(), set()
+    for c in get_index().chunks:
+        (allowed if role_value in c.allowed_roles else restricted).update(_ngrams(c.text))
+    return frozenset(restricted - allowed)
+
+
+def _restricted_leak(answer: str, role: Role, restricted: list[Chunk]) -> bool:
+    """Detecta si la respuesta reproduce contenido exclusivo de documentos restringidos (n-gramas de 6 palabras)."""
+    if not restricted:
+        return False
+    return bool(_ngrams(answer) & _exclusive_restricted_grams(role.value))
 
 
 def _unsupported_numbers(answer: str, evidence: str) -> list[str]:
@@ -70,7 +84,7 @@ def check_output(answer: str, context: list[RetrievedChunk], tool_results: list[
     if CANARY in answer or SYSTEM_PROMPT[:80] in answer or "REGLAS OBLIGATORIAS" in answer:
         v.ok, v.force_abstain = False, True
         v.issues.append("fuga_prompt_sistema")
-    if role != Role.RRHH and _restricted_leak(answer, restricted_chunks):
+    if role != Role.RRHH and _restricted_leak(answer, role, restricted_chunks):
         v.ok, v.force_abstain = False, True
         v.issues.append("fuga_documento_restringido")
     if find_injection(answer):
